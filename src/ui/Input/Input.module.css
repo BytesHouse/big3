@@ -1,0 +1,22 @@
+.inp {
+font-family: 'Avenir', sans-serif;
+color: var(--dark-grey);
+font-weight: 500;
+font-size: 14px;
+background-color: var(--lightest-grey-secondary);
+border: none;
+border-radius: 4px;
+padding: 10px 12px;
+}
+.inp:enabled:hover {
+    background-color: var(--lightest-grey-primary);
+}
+.inp:focus{
+    box-shadow: 0px 0px 5px var(--lightest-grey-secondary);
+}
+.inp:disabled {
+    color: var(--lightest-grey-primary);
+}
+.inp:invalid {
+    border: 1px solid var(--lightest-red) ;
+}

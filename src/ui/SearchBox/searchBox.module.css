@@ -1,0 +1,16 @@
+.wrapper {
+    border: 1px solid var(--lightest-grey-secondary);
+    border-radius: 4px;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 10px 12px;
+}
+
+.inp{
+    color: var(--grey);
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 5px;
+    border: none;
+}
