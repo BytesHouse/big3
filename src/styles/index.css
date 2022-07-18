@@ -14,21 +14,21 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: local('Avenir'), url('./assets/fonts/avenir/Avenir-Book.ttf'), format('ttf');
+    src: local('Avenir'), url('../assets/fonts/avenir/Avenir-Book.ttf'), format('ttf');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Avenir';
-    src: local('Avenir'), url('./assets/fonts/avenir/Avenir-Medium.ttf'), format('ttf');
+    src: local('Avenir'), url('../assets/fonts/avenir/Avenir-Medium.ttf'), format('ttf');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Avenir';
-    src: local('Avenir'), url('./assets/fonts/avenir/Avenir-Black.ttf'), format('ttf');
+    src: local('Avenir'), url('../assets/fonts/avenir/Avenir-Black.ttf'), format('ttf');
     font-weight: 700;
     font-style: bold;
 }
