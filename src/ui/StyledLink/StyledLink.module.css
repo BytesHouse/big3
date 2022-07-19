@@ -1,0 +1,7 @@
+.link a {
+    color: var(--red);
+    padding: 0 1px;
+    font-family: 'Avenir', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}

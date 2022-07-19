@@ -1,0 +1,37 @@
+header {
+    min-width: 320px;
+    height: 80px;
+    box-shadow: 0px 1px 10px var(--lightest-grey-primary);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.userInfo {
+    display: flex;
+    align-items:center;
+}
+.userPhoto {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
+.burger {
+    display: none;
+}
+@media screen and (max-width: 576px) {
+    header {
+        display: flex;
+        justify-content: flex-start;
+        padding: 20px 20px;
+    }
+    .userInfo {
+        display: none;
+    }
+    .burger {
+        display: block;
+    }
+    .logo {
+        margin: 0 auto;
+    }
+  }

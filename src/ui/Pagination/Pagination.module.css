@@ -1,0 +1,52 @@
+.Pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    outline: transparent;
+    font-family: 'Avenir', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+li {
+    margin: 2px;
+    height: 40px;
+    width: 40px;
+}
+
+li > a {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    color: var(--grey);
+    border-radius: 4px;
+    outline: transparent;
+    cursor: pointer;
+}
+
+li > a:hover {
+    background-color: var(--lightest-red);
+    color: white;
+}
+.Pagination__active > a {
+    background-color: purple;
+    border-color: bisque;
+    color: white;
+}
+.Pagination__active > a,
+.Pagination__active > a:hover,
+.Pagination__active > a:focus {
+    background-color: var(--red);
+    outline: transparent;
+    cursor: default;
+}
+
+.disabled > a {
+    cursor: default;
+
+}
+.disabled > a:hover {
+    background-color: transparent;
+}
