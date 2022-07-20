@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './Input.module.css';
+import { input } from '../../types/input';
 
-const Input = () => {
+const Input = (props: input) => {
+  const [view, setView] = useState(props.type);
+
+  const togglePassword = () => {
+    if (view === 'password') {
+      setView('text');
+    } else {
+      setView('password');
+    }
+  };
+
   return (
     <div>
-      <div>
-        <input type="text" name="login" className={style.inp} />
-        <label htmlFor="login"></label>
+      <div className={style.wrapper}>
+        <label htmlFor="login">
+          <div className={style.label}>{props.title}</div>
+          <div className={style.password}>
+            <input type={view} name="login" className={style.inp} />
+            {props.type === 'password' && (
+              <a href="#" className={style.passwordControl} onClick={togglePassword}></a>
+            )}
+          </div>
+        </label>
+        <div className={style.hide}>SomeText</div>
       </div>
     </div>
   );

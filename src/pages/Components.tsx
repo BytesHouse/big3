@@ -19,7 +19,7 @@ const Components = () => {
     <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
       <h1> Components Page</h1> <br /> <br />
       <h2>Login</h2>
-      <Input />
+      <Input type="text" />
       <br />
       <h2>SearchBox</h2>
       <SearchBox />
@@ -52,7 +52,7 @@ const Components = () => {
       <Checkbox />
       <br />
       <h2>Link</h2>
-      <StyledLink />
+      <StyledLink text="text" path="/" />
       <br />
       <h2>Pagination</h2>
       <Pagination

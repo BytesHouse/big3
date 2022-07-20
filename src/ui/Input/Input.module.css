@@ -1,4 +1,8 @@
+.wrapper {
+    padding-bottom: 20px;
+}
 .inp {
+width: 100%;
 font-family: 'Avenir', sans-serif;
 color: var(--dark-grey);
 font-weight: 500;
@@ -7,6 +11,7 @@ background-color: var(--lightest-grey-secondary);
 border: none;
 border-radius: 4px;
 padding: 10px 12px;
+margin-bottom: 5px;
 }
 .inp:enabled:hover {
     background-color: var(--lightest-grey-primary);
@@ -19,4 +24,25 @@ padding: 10px 12px;
 }
 .inp:invalid {
     border: 1px solid var(--lightest-red) ;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+.hide {
+    display: none;
+}
+
+.password {
+    position: relative;
+}
+
+.passwordControl {
+    position: absolute;
+	top: 13px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url('../../assets/icon/eye.svg') 0 0 no-repeat;
 }
