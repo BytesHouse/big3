@@ -13,6 +13,7 @@ import Checkbox from '../ui/Checkbox/Checkbox';
 import StyledLink from '../ui/StyledLink/StyledLink';
 import Pagination from '../ui/Pagination/Pagination';
 import HamburgerMenu from '../ui/HamburgerMenu/HamburgerMenu';
+import { TeamsCard } from '../components/TeamCard/TeamsCard';
 
 const Components = () => {
   return (
@@ -64,6 +65,9 @@ const Components = () => {
       <br />
       <h2>Hamburger</h2>
       <HamburgerMenu />
+      <br />
+      <h2>Teams Card</h2>
+      <TeamsCard />
     </div>
   );
 };
