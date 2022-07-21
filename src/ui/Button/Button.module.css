@@ -16,7 +16,12 @@
 .primary:active {
     background-color: var(--dark-red);
 }
-.primary:disabled {
+.disabled {
     background-color: var(--lightest-grey-secondary);
     color: var(--lightest-grey-primary);
+}
+.disabled:hover {
+    background-color: var(--lightest-grey-secondary);
+    color: var(--lightest-grey-primary);
+    cursor: default;
 }

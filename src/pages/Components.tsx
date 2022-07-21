@@ -4,7 +4,7 @@ import SearchBox from '../ui/SearchBox/SearchBox';
 import Multiselect from '../ui/Multiselect/Multiselect';
 import SingleSelect from '../ui/SingleSelect/SingleSelect';
 import Navigation from '../ui/Navigation/Navigation';
-import Button from '../ui/Button/Button';
+import { Button } from '../ui/Button/Button';
 import ButtonSecondary from '../ui/ButtonSecondary/ButtonSecondary';
 import AddButton from '../ui/AddButton/AddButton';
 import Logo from '../ui/Logo/Logo';
