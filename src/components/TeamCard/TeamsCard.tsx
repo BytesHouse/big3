@@ -1,16 +1,20 @@
 import React from 'react';
 import style from './TeamsCard.module.css';
-import image from '../../assets/images/POR1.png';
+import { ITeamData } from '../../types/types';
 
-export const TeamsCard: React.FC = () => {
+interface ITeamCardProps {
+  team: ITeamData;
+}
+
+export const TeamsCard: React.FC<ITeamCardProps> = ({ team }) => {
   return (
     <div className={style.container}>
       <div className={style.topBlock}>
-        <img src={image} alt="Team" />
+        <img src={team.imageUrl} alt="Team" />
       </div>
       <div className={style.bottomBlock}>
-        <div className={style.name}>Portland trail blazers</div>
-        <div className={style.year}>Year of foundation: 1970</div>
+        <div className={style.name}>{team.name}</div>
+        <div className={style.year}>Year of foundation: {team.foundationYear}</div>
       </div>
     </div>
   );

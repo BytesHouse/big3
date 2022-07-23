@@ -4,6 +4,11 @@ import { input } from '../../types/input';
 
 const Input = (props: input) => {
   const [view, setView] = useState(props.type);
+  const [value, setValue] = useState('');
+
+  const onChange = (value: any) => {
+    setValue(value);
+  };
 
   const togglePassword = () => {
     if (view === 'password') {
@@ -19,7 +24,13 @@ const Input = (props: input) => {
         <label htmlFor="login">
           <div className={style.label}>{props.title}</div>
           <div className={style.password}>
-            <input type={view} name="login" className={style.inp} />
+            <input
+              value={value}
+              onChange={() => onChange(value)}
+              type={view}
+              name="login"
+              className={style.inp}
+            />
             {props.type === 'password' && (
               <a href="#" className={style.passwordControl} onClick={togglePassword}></a>
             )}

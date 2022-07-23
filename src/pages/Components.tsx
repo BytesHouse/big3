@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '../ui/Input/Input';
 import SearchBox from '../ui/SearchBox/SearchBox';
 import Multiselect from '../ui/Multiselect/Multiselect';
@@ -13,9 +13,39 @@ import Checkbox from '../ui/Checkbox/Checkbox';
 import StyledLink from '../ui/StyledLink/StyledLink';
 import Pagination from '../ui/Pagination/Pagination';
 import HamburgerMenu from '../ui/HamburgerMenu/HamburgerMenu';
-import { TeamsCard } from '../components/TeamCard/TeamsCard';
+// import { TeamsCard } from '../components/TeamCard/TeamsCard';
+import TeamList from '../components/TeamList/TeamList';
+import { ITeamData, ITeamResponse } from '../types/types';
+import axios from 'axios';
 
 const Components = () => {
+  const [teams, setTeams] = useState<ITeamData[]>([]);
+
+  const config = {
+    headers: {
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQW5kcmVMaWdodCIsInRlbmFudCI6IjMyNzIiLCJuYmYiOjE2NTg1NTM3NzEsImV4cCI6MTY1ODY0MDE3MSwiaXNzIjoiVGVzdC1CYWNrZW5kLTEiLCJhdWQiOiJCYXNrZXRCYWxsQ2x1YlNhbXBsZSJ9.mJ7J4ouVyfnTCzf4KwEqW1LwryN3jmKty6f-RWKWVkM',
+      'Access-Control-Allow-Origin': 'origin-list',
+      'Content-Type': 'application/json',
+    },
+  };
+
+  useEffect(() => {
+    fetchTeams();
+  });
+
+  async function fetchTeams() {
+    try {
+      const response = await axios.get<ITeamResponse>(
+        'http://dev.trainee.dex-it.ru/api/Team/GetTeams',
+        config
+      );
+      setTeams(response.data.data);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   return (
     <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
       <h1> Components Page</h1> <br /> <br />
@@ -67,7 +97,7 @@ const Components = () => {
       <HamburgerMenu />
       <br />
       <h2>Teams Card</h2>
-      <TeamsCard />
+      <TeamList teams={teams} />
     </div>
   );
 };

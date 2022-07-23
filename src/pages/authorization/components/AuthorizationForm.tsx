@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Button } from '../../../ui/Button/Button';
 import Input from '../../../ui/Input/Input';
 import style from './AuthorizationForm.module.css';
 import StyledLink from '../../../ui/StyledLink/StyledLink';
 
-const AuthorizationForm = () => {
+const AuthorizationForm: FC = () => {
   return (
     <div>
       <form action="">
