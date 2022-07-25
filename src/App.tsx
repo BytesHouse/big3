@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Prolapse } from './components/Prolapse/Prolapse';
 import Components from './pages/Components';
 import SignInPage from './pages/authorization/SignInPage';
-// import { ApplicationPage } from './pages/ApplicationPage/ApplicationPage';
+import { ApplicationPage } from './pages/ApplicationPage/ApplicationPage';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="players/addPlayer" />
         <Route path="player/:id" />
         <Route path="player/edit/:id" />
-        <Route path="/" />
+        <Route path="/" element={<ApplicationPage />} />
         <Route path="/signup" element={<SignInPage />} />
         <Route path="*" />
         <Route path="components" element={<Components />} />
