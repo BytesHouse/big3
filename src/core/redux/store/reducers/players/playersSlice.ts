@@ -18,13 +18,22 @@ export const fetchPlayers: any = createAsyncThunk(
     }
   }
 );
+
+interface PlayersState {
+  players: object;
+  status: string;
+  error: string;
+}
+
+const initialState: PlayersState = {
+  players: {},
+  status: '',
+  error: '',
+};
+
 const players = createSlice({
   name: 'players',
-  initialState: {
-    players: {},
-    status: '',
-    error: '',
-  },
+  initialState,
   reducers: {},
   extraReducers: {
     [fetchPlayers.pending]: (state) => {
