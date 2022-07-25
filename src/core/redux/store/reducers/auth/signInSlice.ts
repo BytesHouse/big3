@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL, SIGN_IN } from '../../../../../api/Constants';
+import { IAuthState } from '../../../../../types/models/IAuth';
 
 const link = BASE_URL + SIGN_IN;
 
@@ -22,13 +23,15 @@ export const SignIn: any = createAsyncThunk(
   }
 );
 
+const initialState: IAuthState = {
+  auth: {},
+  status: '',
+  error: '',
+};
+
 const SignInSlice = createSlice({
   name: 'auth',
-  initialState: {
-    auth: {},
-    status: '',
-    error: '',
-  },
+  initialState,
   reducers: {},
   extraReducers: {
     [SignIn.pending]: (state) => {

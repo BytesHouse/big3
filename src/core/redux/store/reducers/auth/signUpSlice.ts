@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL, SIGN_UP } from '../../../../../api/Constants';
+import { IAuthState } from '../../../../../types/models/IAuth';
 
 const link = BASE_URL + SIGN_UP;
 
@@ -20,13 +21,15 @@ export const SignUp: any = createAsyncThunk(SIGN_UP, async (data: any) => {
   }
 });
 
+const initialState: IAuthState = {
+  auth: {},
+  status: '',
+  error: '',
+};
+
 const SignUpSlice = createSlice({
   name: 'auth',
-  initialState: {
-    user: {},
-    status: '',
-    error: '',
-  },
+  initialState,
   reducers: {},
   extraReducers: {
     [SignUp.pending]: (state) => {
@@ -35,7 +38,7 @@ const SignUpSlice = createSlice({
     },
     [SignUp.fulfilled]: (state, action) => {
       state.status = 'resolved';
-      state.user = action.payload;
+      state.auth = action.payload;
       localStorage.setItem('status', action.payload.status);
     },
     [SignUp.rejected]: (state) => {
