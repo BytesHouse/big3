@@ -1,6 +1,12 @@
 // baseUrl
 export const BASE_URL = 'http://dev.trainee.dex-it.ru/api/';
 
+// SignIn
+export const SIGN_IN = 'Auth/SignIn';
+
+// SignUp
+export const SIGN_UP = 'auth/AuthSignUp';
+
 // SaveImageAPI
 export const SAVE_IMAGE = 'Image/SaveImage';
 
@@ -12,12 +18,12 @@ export const getTeamById = (id: number) => `Team/Get?id=${id}`;
 export const deleteTeamById = (id: number) => `Team/Delete?id=${id}`;
 
 // PLAYER
-export const GET_POSITION = 'Player/GetPositions';
 export const ADD_PLAYER = 'Player/Add';
+export const UPDATE_PLAYER = 'Player/Update';
+export const GET_POSITION = 'Player/GetPositions';
+export const SEARCH_PLAYER = 'Player/GetPlayers';
 export const getPlayerById = (id: number) => `Player/Get?id=${id}`;
 export const deletePlayerById = (id: number) => `Player/Delete?id=${id}`;
-export const UPDATE_PLAYER = 'Player/Update';
-export const SEARCH_PLAYER = 'Player/GetPlayers';
 
 // CHANGE_USER
 export const CHANGE_PROFILE = 'Auth/Change';
