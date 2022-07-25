@@ -1,18 +1,29 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Prolapse } from './components/Prolapse/Prolapse';
 import Components from './pages/Components';
 import SignInPage from './pages/authorization/SignInPage';
-import { ApplicationPage } from './pages/ApplicationPage/ApplicationPage';
+// import { ApplicationPage } from './pages/ApplicationPage/ApplicationPage';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <Suspense fallback={<Prolapse />} />
       <Routes>
-        <Route path="/components" element={<Components />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/app" element={<ApplicationPage />} />
+        <Route path="/teams" />
+        <Route path="/teams/addTeam" />
+        <Route path="/team/:id" />
+        <Route path="/team/edit/:id" />
+        <Route path="/players" />
+        <Route path="players/addPlayer" />
+        <Route path="player/:id" />
+        <Route path="player/edit/:id" />
+        <Route path="/" />
+        <Route path="/signup" element={<SignInPage />} />
+        <Route path="*" />
+        <Route path="components" element={<Components />} />
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 
