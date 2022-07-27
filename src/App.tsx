@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<Prolapse />} />
       <Routes>
-        <Route path="/teams" />
+        <Route path="/teams" element={<ApplicationPage />} />
         <Route path="/teams/addTeam" />
         <Route path="/team/:id" />
         <Route path="/team/edit/:id" />
@@ -18,8 +18,8 @@ function App() {
         <Route path="players/addPlayer" />
         <Route path="player/:id" />
         <Route path="player/edit/:id" />
-        <Route path="/" element={<ApplicationPage />} />
-        <Route path="/signup" element={<SignInPage />} />
+        <Route path="/signup" />
+        <Route path="/" element={<SignInPage />} />
         <Route path="*" />
         <Route path="components" element={<Components />} />
       </Routes>
