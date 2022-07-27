@@ -1,5 +1,6 @@
 .addButton {
     width: 105px;
+    min-width: 75px;
     background-color: var(--red);
     color: white;
     border: none;
@@ -8,6 +9,7 @@
     font-family: 'Avenir', sans-serif;
     font-weight: 500;
     font-size: 15px;
+    transition: ease 0.4s;
 }
 .addButton:hover {
     cursor: pointer;

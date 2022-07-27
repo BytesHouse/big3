@@ -13,6 +13,7 @@ border-radius: 4px;
 padding: 10px 12px;
 margin-bottom: 5px;
 border-radius: 4px;
+transition: ease 0.4s;
 }
 .inp:enabled:hover {
     background-color: var(--lightest-grey-primary);

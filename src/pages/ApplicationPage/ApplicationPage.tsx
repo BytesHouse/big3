@@ -4,6 +4,44 @@ import HamburgerMenu from '../../ui/HamburgerMenu/HamburgerMenu';
 import Navigation from '../../ui/Navigation/Navigation';
 import SearchBox from '../../ui/SearchBox/SearchBox';
 import AddButton from '../../ui/AddButton/AddButton';
+import TeamList from '../../components/TeamList/TeamList';
+import { ITeamData } from '../../types/types';
+import test from '../../assets/images/POR1.png';
+
+const data: ITeamData[] = [
+  {
+    name: 'test',
+    foundationYear: 1,
+    division: 'test',
+    conference: 'test',
+    imageUrl: test,
+    id: 1,
+  },
+  {
+    name: 'test2',
+    foundationYear: 2,
+    division: 'test2',
+    conference: 'test2',
+    imageUrl: test,
+    id: 2,
+  },
+  {
+    name: 'test2',
+    foundationYear: 3,
+    division: 'test2',
+    conference: 'test2',
+    imageUrl: test,
+    id: 3,
+  },
+  {
+    name: 'test2',
+    foundationYear: 4,
+    division: 'test2',
+    conference: 'test2',
+    imageUrl: test,
+    id: 4,
+  },
+];
 
 export const ApplicationPage: React.FC = () => {
   return (
@@ -16,7 +54,9 @@ export const ApplicationPage: React.FC = () => {
             <SearchBox />
             <AddButton />
           </div>
-          <div>grid</div>
+          <div className={style.display__content}>
+            <TeamList teams={data} />
+          </div>
           <div>footer</div>
         </div>
       </div>

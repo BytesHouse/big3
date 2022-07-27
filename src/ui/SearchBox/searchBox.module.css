@@ -1,5 +1,5 @@
 .wrapper {
-    width: 30%;
+    width: 32%;
     min-width: 220px;
     background-color: white;
     border: 1px solid var(--lightest-grey-secondary);
@@ -9,7 +9,19 @@
     align-items: center;
     justify-content: space-between;
     padding-right: 12px;
+    margin-right: 5px;
 }
+/* @media screen and (max-width: 950px){
+    .wrapper {
+        width: 48%;
+    }
+}
+@media screen and (max-width: 668px) {
+    .wrapper {
+        width: 45%;
+    }
+} */
+
 
 .inp{
     color: var(--grey);
