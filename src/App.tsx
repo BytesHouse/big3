@@ -4,6 +4,7 @@ import { Prolapse } from './components/Prolapse/Prolapse';
 import Components from './pages/Components';
 import SignInPage from './pages/authorization/SignInPage';
 import { ApplicationPage } from './pages/ApplicationPage/ApplicationPage';
+import SignUpPage from './pages/registration/SignUpPage';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="players/addPlayer" />
         <Route path="player/:id" />
         <Route path="player/edit/:id" />
-        <Route path="/signup" />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/" element={<SignInPage />} />
         <Route path="*" />
         <Route path="components" element={<Components />} />

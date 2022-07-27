@@ -25,7 +25,6 @@ const Input = (props: input) => {
           <div className={style.label}>{props.title}</div>
           <div className={style.password}>
             <input
-              value={value}
               onChange={() => onChange(value)}
               type={view}
               name="login"
