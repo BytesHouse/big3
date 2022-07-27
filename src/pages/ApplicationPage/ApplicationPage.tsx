@@ -41,6 +41,22 @@ const data: ITeamData[] = [
     imageUrl: test,
     id: 4,
   },
+  {
+    name: 'test2',
+    foundationYear: 5,
+    division: 'test2',
+    conference: 'test2',
+    imageUrl: test,
+    id: 5,
+  },
+  {
+    name: 'test2',
+    foundationYear: 6,
+    division: 'test2',
+    conference: 'test2',
+    imageUrl: test,
+    id: 6,
+  },
 ];
 
 export const ApplicationPage: React.FC = () => {
