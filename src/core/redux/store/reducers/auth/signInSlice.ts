@@ -9,7 +9,7 @@ const link = BASE_URL + SIGN_IN;
 export const signIn: any = createAsyncThunk(
   'auth/AuthSignIn',
   async (data: any, { reject }: any) => {
-    const login = data.Login;
+    const login = data.login;
     const password = data.password;
 
     try {
@@ -33,7 +33,8 @@ const initialState: IAuthState = {
 const SignInSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
+  reducers: {},
+  extraReducers: {
     [signIn.pending]: (state) => {
       state.status = 'loading';
       state.error = '';

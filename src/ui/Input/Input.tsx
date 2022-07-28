@@ -3,9 +3,8 @@ import style from './Input.module.css';
 import { input } from '../../types/input';
 
 const Input = (props: input) => {
-  const { id, title } = props;
+  const { id, title, onChange } = props;
   const [view, setView] = useState(props.type);
-  const [valueState, setValueState] = useState('');
 
   const togglePassword = () => {
     if (view === 'password') {
@@ -22,11 +21,10 @@ const Input = (props: input) => {
           <div className={style.label}>{title}</div>
           <div className={style.password}>
             <input
-              onChange={(e) => setValueState(e.target.value)}
+              onChange={(e) => onChange(e.target.value)}
               type={view}
               name={title}
               className={style.inp}
-              value={valueState}
               id={id}
             />
             {props.type === 'password' && (

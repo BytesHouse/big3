@@ -61,7 +61,7 @@ const Components = () => {
     <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
       <h1> Components Page</h1> <br /> <br />
       <h2>Login</h2>
-      <Input type="text" />
+      <Input onChange={() => console.log('hello')} type="text" />
       <br />
       <h2>SearchBox</h2>
       <SearchBox />

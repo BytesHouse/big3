@@ -17,10 +17,14 @@ const RegistrationForm: FC = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} action="">
-        <Input type="text" title="Name" />
-        <Input type="text" title="Login" />
-        <Input type="password" title="Password" />
-        <Input type="password" title="Enter your password again" />
+        <Input onChange={() => console.log('hello')} type="text" title="Name" />
+        <Input onChange={() => console.log('hello')} type="text" title="Login" />
+        <Input onChange={() => console.log('hello')} type="password" title="Password" />
+        <Input
+          onChange={() => console.log('hello')}
+          type="password"
+          title="Enter your password again"
+        />
         <Checkbox className={style.checkbox} title="I accept the agreement" />
         <Button onClick={handleSubmit}>Sign up</Button>
         <div className={style.text}>

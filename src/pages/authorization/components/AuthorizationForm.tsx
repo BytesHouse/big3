@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { signIn } from '../../../core/redux/store/reducers/auth/signInSlice';
+import React, { FC, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../../core/redux/store/reducers/auth/signInSlice';
 import { Button } from '../../../ui/Button/Button';
 import Input from '../../../ui/Input/Input';
 import style from './AuthorizationForm.module.css';
@@ -9,18 +9,37 @@ import StyledLink from '../../../ui/StyledLink/StyledLink';
 // import { ILogin } from '../../../api/dto/auth';
 
 const AuthorizationForm: FC = () => {
-  const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const getLoginValue = (value: string) => {
+    setLogin(value);
+  };
+  const getPassValue = (value: string) => {
+    setPassword(value);
+  };
+  const authUser = {
+    login,
+    password,
+  };
 
   async function handleSubmit(event: any) {
     event.preventDefault();
-    navigate('/teams');
+    dispatch(signIn(authUser));
+    // navigate('/teams');
   }
   return (
     <div>
       <form action="">
-        <Input id="login" type="text" title="Login" />
-        <Input id="password" type="password" title="Password" />
+        <Input onChange={() => getLoginValue(login)} id="login" type="text" title="Login" />
+        <Input
+          onChange={() => getPassValue(password)}
+          id="password"
+          type="password"
+          title="Password"
+        />
         <Button onClick={handleSubmit} typeButton="submit">
           Sign in
         </Button>
