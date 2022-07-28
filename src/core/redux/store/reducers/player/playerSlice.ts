@@ -13,13 +13,15 @@ export const fetchPlayer: any = createAsyncThunk('fetch/fetchPlayer', async (id:
 interface PlayerState {
   playerInfo: object;
   status: string;
-  error: null;
+  error: boolean;
+  isLoading: boolean;
 }
 
 const initialState: PlayerState = {
   playerInfo: {},
   status: '',
-  error: null,
+  error: false,
+  isLoading: true,
 };
 
 const Player = createSlice({
@@ -29,11 +31,17 @@ const Player = createSlice({
   extraReducers: {
     [fetchPlayer.pending]: (state: any) => {
       state.status = 'loading';
-      state.error = null;
+      state.isLoading = true;
     },
     [fetchPlayer.fulfilled]: (state: any, action: any) => {
-      state.status = 'resolved';
+      state.status = 'success';
       state.playerInfo = [action.payload.data];
+      state.isLoading = false;
+    },
+    [fetchPlayer.resolved]: (state: any, action: any) => {
+      state.status = 'resolved';
+      state.error = true;
+      state.isLoading = false;
     },
   },
 });

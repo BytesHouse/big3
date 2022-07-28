@@ -5,7 +5,7 @@ export interface IAuth {
 }
 
 export interface ILogin {
-  email: string;
+  login: string;
   password: string;
 }
 

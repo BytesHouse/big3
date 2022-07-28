@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL, SIGN_IN } from '../../../../../api/Constants';
 import { IAuthState } from '../../../../../types/models/IAuth';
-import { useNavigate } from 'react-router-dom';
 
 const link = BASE_URL + SIGN_IN;
 
@@ -45,8 +44,6 @@ const SignInSlice = createSlice({
       localStorage.setItem('token', action.payload.token);
       localStorage.setItem('name', action.payload.name);
       localStorage.setItem('avatarUrl', action.payload.avatarUrl);
-      const navigate = useNavigate();
-      navigate('/teams');
     },
     [signIn.rejected]: (state) => {
       state.status = 'rejected';

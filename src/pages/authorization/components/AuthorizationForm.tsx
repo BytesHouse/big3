@@ -1,17 +1,17 @@
 import React, { FC, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../../core/redux/store/reducers/auth/signInSlice';
 import { Button } from '../../../ui/Button/Button';
 import Input from '../../../ui/Input/Input';
 import style from './AuthorizationForm.module.css';
 import StyledLink from '../../../ui/StyledLink/StyledLink';
-// import { ILogin } from '../../../api/dto/auth';
+import { ILogin } from '../../../api/dto/auth';
 
 const AuthorizationForm: FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const getLoginValue = (value: string) => {
@@ -20,7 +20,7 @@ const AuthorizationForm: FC = () => {
   const getPassValue = (value: string) => {
     setPassword(value);
   };
-  const authUser = {
+  const authUser: ILogin = {
     login,
     password,
   };
@@ -28,7 +28,7 @@ const AuthorizationForm: FC = () => {
   async function handleSubmit(event: any) {
     event.preventDefault();
     dispatch(signIn(authUser));
-    // navigate('/teams');
+    navigate('/teams');
   }
   return (
     <div>
