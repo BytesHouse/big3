@@ -1,0 +1,23 @@
+.container {
+    width: 30vw;
+    background-color: white;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 0px 1rem 2rem 1rem;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.container img {
+    max-width: 100%;
+}
+.container h1 {
+    color: var(--lightest-red);
+    font-family: 'Avenir', sans-serif;
+    font-weight: 800;
+    margin-top: 1rem;
+}
+.container h3 {
+    color: var(--grey);
+    font-weight: 400;
+    margin-top: 1rem;
+}

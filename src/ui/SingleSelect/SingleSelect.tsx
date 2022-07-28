@@ -38,7 +38,7 @@ const SingleSelect = (props: propOption) => {
     }),
     container: (styles: any) => ({
       ...styles,
-      width: '300px',
+      width: '100px',
     }),
     indicatorsContainer: (styles: any) => ({
       ...styles,

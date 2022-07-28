@@ -1,0 +1,21 @@
+.container {
+    border: 1px solid var(--light-grey);
+    border-radius: 0.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 30px;
+}
+.info {
+    display: flex;
+    align-items: center;
+}
+.info span:nth-child(2) {
+    margin: 0 5px;
+    color: var(--light-grey);
+}
+.header span {
+    color: var(--red);
+}

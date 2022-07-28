@@ -17,6 +17,7 @@ import HamburgerMenu from '../ui/HamburgerMenu/HamburgerMenu';
 import TeamList from '../components/TeamList/TeamList';
 import { ITeamData, ITeamResponse } from '../types/types';
 import axios from 'axios';
+import TeamInfo from '../components/TeamInfo/TeamInfo';
 
 const Components = () => {
   const [teams, setTeams] = useState<ITeamData[]>([]);
@@ -98,6 +99,7 @@ const Components = () => {
       <br />
       <h2>Teams Card</h2>
       <TeamList teams={teams} />
+      <TeamInfo title="Denver Nuggets" />
     </div>
   );
 };
