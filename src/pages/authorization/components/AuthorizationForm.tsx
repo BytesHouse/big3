@@ -33,13 +33,8 @@ const AuthorizationForm: FC = () => {
   return (
     <div>
       <form action="">
-        <Input onChange={() => getLoginValue(login)} id="login" type="text" title="Login" />
-        <Input
-          onChange={() => getPassValue(password)}
-          id="password"
-          type="password"
-          title="Password"
-        />
+        <Input onChange={getLoginValue} id="login" type="text" title="Login" />
+        <Input onChange={getPassValue} id="password" type="password" title="Password" />
         <Button onClick={handleSubmit} typeButton="submit">
           Sign in
         </Button>

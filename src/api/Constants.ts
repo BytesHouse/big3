@@ -5,7 +5,7 @@ export const BASE_URL = 'http://dev.trainee.dex-it.ru/api/';
 export const SIGN_IN = 'Auth/SignIn';
 
 // SignUp
-export const SIGN_UP = 'auth/AuthSignUp';
+export const SIGN_UP = 'Auth/SignUp';
 
 // SaveImageAPI
 export const SAVE_IMAGE = 'Image/SaveImage';
