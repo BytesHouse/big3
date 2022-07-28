@@ -3,12 +3,9 @@ import style from './Input.module.css';
 import { input } from '../../types/input';
 
 const Input = (props: input) => {
+  const { id, title } = props;
   const [view, setView] = useState(props.type);
-  const [value, setValue] = useState('');
-
-  const onChange = (value: any) => {
-    setValue(value);
-  };
+  const [valueState, setValueState] = useState('');
 
   const togglePassword = () => {
     if (view === 'password') {
@@ -21,14 +18,16 @@ const Input = (props: input) => {
   return (
     <div>
       <div className={style.wrapper}>
-        <label htmlFor="login">
-          <div className={style.label}>{props.title}</div>
+        <label htmlFor={title}>
+          <div className={style.label}>{title}</div>
           <div className={style.password}>
             <input
-              onChange={() => onChange(value)}
+              onChange={(e) => setValueState(e.target.value)}
               type={view}
-              name="login"
+              name={title}
               className={style.inp}
+              value={valueState}
+              id={id}
             />
             {props.type === 'password' && (
               <a href="#" className={style.passwordControl} onClick={togglePassword}></a>

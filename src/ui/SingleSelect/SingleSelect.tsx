@@ -1,13 +1,16 @@
 import React from 'react';
 import Select from 'react-select';
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+// const options = [
+//   { value: 'chocolate', label: 'Chocolate' },
+//   { value: 'strawberry', label: 'Strawberry' },
+//   { value: 'vanilla', label: 'Vanilla' },
+// ];
+interface propOption {
+  data?: object[];
+}
 
-const SingleSelect = () => {
+const SingleSelect = (props: propOption) => {
   const colourStyles = {
     control: (styles: any) => ({
       ...styles,
@@ -46,7 +49,7 @@ const SingleSelect = () => {
     }),
   };
 
-  return <Select options={options} styles={colourStyles} />;
+  return <Select menuPlacement="auto" options={props.data} styles={colourStyles} />;
 };
 
 export default SingleSelect;

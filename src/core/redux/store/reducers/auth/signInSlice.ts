@@ -2,10 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL, SIGN_IN } from '../../../../../api/Constants';
 import { IAuthState } from '../../../../../types/models/IAuth';
+import { useNavigate } from 'react-router-dom';
 
 const link = BASE_URL + SIGN_IN;
 
-export const SignIn: any = createAsyncThunk(
+export const signIn: any = createAsyncThunk(
   'auth/AuthSignIn',
   async (data: any, { reject }: any) => {
     const login = data.Login;
@@ -32,20 +33,21 @@ const initialState: IAuthState = {
 const SignInSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
-  extraReducers: {
-    [SignIn.pending]: (state) => {
+  reducers: {
+    [signIn.pending]: (state) => {
       state.status = 'loading';
       state.error = '';
     },
-    [SignIn.fulfilled]: (state, action) => {
+    [signIn.fulfilled]: (state, action) => {
       state.status = 'resolved';
       state.auth = action.payload;
       localStorage.setItem('token', action.payload.token);
       localStorage.setItem('name', action.payload.name);
       localStorage.setItem('avatarUrl', action.payload.avatarUrl);
+      const navigate = useNavigate();
+      navigate('/teams');
     },
-    [SignIn.rejected]: (state) => {
+    [signIn.rejected]: (state) => {
       state.status = 'rejected';
       state.error = 'Authorization error';
     },

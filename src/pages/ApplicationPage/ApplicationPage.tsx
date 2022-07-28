@@ -7,6 +7,9 @@ import AddButton from '../../ui/AddButton/AddButton';
 import TeamList from '../../components/TeamList/TeamList';
 import { ITeamData } from '../../types/types';
 import test from '../../assets/images/POR1.png';
+import Pagination from '../../ui/Pagination/Pagination';
+import SingleSelect from '../../ui/SingleSelect/SingleSelect';
+import { selectOption } from '../../ui/SingleSelect/options';
 
 const data: ITeamData[] = [
   {
@@ -73,7 +76,15 @@ export const ApplicationPage: React.FC = () => {
           <div className={style.display__content}>
             <TeamList teams={data} />
           </div>
-          <div>footer</div>
+          <div className={style.footer}>
+            <Pagination
+              pageCount={5}
+              onChange={function ({ selected }: { selected: number }): void {
+                throw new Error('Function not implemented.');
+              }}
+            />
+            <SingleSelect data={selectOption} />
+          </div>
         </div>
       </div>
     </div>
