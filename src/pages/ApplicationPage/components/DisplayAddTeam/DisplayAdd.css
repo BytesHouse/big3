@@ -20,9 +20,6 @@
     }
 }
 
-.leftBlock{
-    background-color: black;
-}
 .leftBlock__heading {
     color: var(--grey);
 }

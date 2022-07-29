@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DisplayAdd.css';
 import CustomImageUploading from '../CustomImageUploading/CustomImageUploading';
+import Input from '../../../../ui/Input/Input';
+import ButtonSecondary from '../../../../ui/ButtonSecondary/ButtonSecondary';
 const DisplayAddTeam = () => {
+  const [name, setName] = useState('');
+  const handleName = (value: string) => {
+    setName(value);
+  };
+  // eslint-disable-next-line no-unused-vars
+  const teamData = {
+    name,
+  };
   return (
     <div className="addItem__display">
       <div className="display__wrapper">
@@ -11,7 +21,13 @@ const DisplayAddTeam = () => {
           </div>
           <CustomImageUploading />
         </div>
-        <div>2</div>
+        <div className="rightBlock">
+          <Input type={'text'} onChange={handleName} title="Name" />
+          <Input type={'text'} onChange={handleName} title="Devision" />
+          <Input type={'text'} onChange={handleName} title="Conference" />
+          <Input type={'text'} onChange={handleName} title="Year of foundation  " />
+          <ButtonSecondary />
+        </div>
       </div>
     </div>
   );

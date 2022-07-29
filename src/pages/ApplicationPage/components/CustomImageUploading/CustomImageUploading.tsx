@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ImageUploading, { ImageListType } from 'react-images-uploading';
+import test from '../../../../assets/icon/photo.svg';
+import { img, btn, btnDrag } from './styles.ts';
 
 const CustomImageUploading = () => {
   const [images, setImages] = useState([]);
@@ -12,36 +14,21 @@ const CustomImageUploading = () => {
   };
   return (
     <div>
-      <ImageUploading multiple value={images} onChange={onChange} maxNumber={maxNumber}>
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
+      <ImageUploading value={images} onChange={onChange} maxNumber={maxNumber}>
+        {({ imageList, onImageUpload, onImageUpdate, onImageRemove, isDragging, dragProps }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
+          <div>
             <button
-              style={isDragging ? { color: 'red' } : undefined}
+              style={isDragging ? { ...btnDrag } : { ...btn }}
               onClick={onImageUpload}
               {...dragProps}
             >
-              Click or Drop here
+              {imageList[0] ? (
+                <img style={{ ...img }} src={imageList[0].dataURL} alt="" />
+              ) : (
+                <img src={test} />
+              )}
             </button>
-            &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image.dataURL} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
-                </div>
-              </div>
-            ))}
           </div>
         )}
       </ImageUploading>
