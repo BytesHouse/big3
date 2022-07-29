@@ -8,7 +8,7 @@ export interface ITeamData {
 }
 
 export interface ITeamResponse {
-  data: ITeamData[];
+  data: ITeamData;
   count: number;
   page: number;
   size: number;

@@ -16,6 +16,9 @@ export const signIn: any = createAsyncThunk(
         login,
         password,
       });
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('name', response.data.name);
+      localStorage.setItem('avatarUrl', response.data.avatarUrl);
       return response.data;
     } catch (e) {
       return reject(e);
@@ -41,9 +44,6 @@ const SignInSlice = createSlice({
     [signIn.fulfilled]: (state, action) => {
       state.status = 'resolved';
       state.auth = action.payload;
-      localStorage.setItem('token', action.payload.token);
-      localStorage.setItem('name', action.payload.name);
-      localStorage.setItem('avatarUrl', action.payload.avatarUrl);
     },
     [signIn.rejected]: (state) => {
       state.status = 'rejected';

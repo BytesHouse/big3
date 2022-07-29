@@ -1,15 +1,12 @@
 import React, { FC } from 'react';
-import { ITeamData } from '../../types/types';
+import { useSelector } from 'react-redux';
 import { TeamsCard } from '../TeamCard/TeamsCard';
 
-export interface ITeamsListProps {
-  teams: ITeamData[];
-}
-
-const TeamList: FC<ITeamsListProps> = ({ teams }) => {
+const TeamList: FC = () => {
+  const { teams } = useSelector((store: any) => store.teams);
   return (
     <>
-      {teams.map((team) => (
+      {teams.map((team: any) => (
         <TeamsCard key={team.id} team={team} />
       ))}
     </>

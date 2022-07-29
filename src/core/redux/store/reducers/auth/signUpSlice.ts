@@ -13,6 +13,10 @@ export const signUp: any = createAsyncThunk('auth/signup', async (data: any) => 
       password,
       userName,
     });
+    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('name', response.data.name);
+    localStorage.setItem('avatarUrl', response.data.avatarUrl);
+    localStorage.setItem('status', response.data.status);
     return response;
   } catch (e) {
     console.log(e);
@@ -37,10 +41,9 @@ const SignUpSlice = createSlice({
     [signUp.fulfilled]: (state, action) => {
       state.status = 'resolved';
       state.auth = action.payload;
-      localStorage.setItem('status', action.payload.status);
     },
     [signUp.rejected]: (state) => {
-      state.error = 'Authorization error';
+      state.error = 'Registration error';
     },
   },
 });

@@ -5,21 +5,28 @@ import Components from './pages/Components';
 import SignInPage from './pages/authorization/SignInPage';
 import { ApplicationPage } from './pages/ApplicationPage/ApplicationPage';
 import SignUpPage from './pages/registration/SignUpPage';
-import Players from './pages/ApplicationPage/Players/Players';
+import DisplayTeams from './pages/ApplicationPage/components/DisplayTeams/DisplayTeams';
+import DisplayAddTeam from './pages/ApplicationPage/components/DisplayAddTeam/DisplayAddTeam';
+// import Navigation from './ui/Navigation/Navigation';
+// import Players from './pages/ApplicationPage/Players/Players';
 
 function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<Prolapse />} />
       <Routes>
-        <Route path="/teams" element={<ApplicationPage />} />
-        <Route path="/teams/addTeam" />
-        <Route path="/team/:id" />
-        <Route path="/team/edit/:id" />
-        <Route path="/players" element={<Players />} />
-        <Route path="players/addPlayer" />
-        <Route path="player/:id" />
-        <Route path="player/edit/:id" />
+        <Route path="dashboard" element={<ApplicationPage />}>
+          <Route path="teams" element={<DisplayTeams />}>
+            <Route path=":id" />
+          </Route>
+          <Route path="addTeam" element={<DisplayAddTeam />} />
+          <Route path="edit/:id" />
+          <Route path="players" element={<DisplayTeams />}>
+            <Route path=":id" />
+          </Route>
+          <Route path="edit/:id" />
+          <Route path="addPlayer" />
+        </Route>
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/" element={<SignInPage />} />
         <Route path="*" />

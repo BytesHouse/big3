@@ -29,6 +29,7 @@ const teams = createSlice({
     teams: {},
     status: '',
     error: '',
+    isLoading: false,
   },
   reducers: {},
   extraReducers: {
@@ -44,7 +45,7 @@ const teams = createSlice({
     },
     [fetchTeamData.rejected]: (state) => {
       state.status = 'rejected';
-      state.error = 'Ошибка авторизации';
+      state.error = 'Authorization error';
     },
   },
 });
