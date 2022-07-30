@@ -5,7 +5,7 @@ import signOut from '../../assets/icon/input.svg';
 import { PersonIcon, GroupPersonIcon } from '../../assets/icon/icons.tsx';
 
 const HamburgerMenu = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const onNavigateHandler = (url: string, page: number) => {
     navigate(url);

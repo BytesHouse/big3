@@ -28,7 +28,7 @@ const AuthorizationForm: FC = () => {
   async function handleSubmit(event: any) {
     event.preventDefault();
     dispatch(signIn(authUser));
-    navigate('/teams');
+    navigate('/dashboard/teams');
   }
   return (
     <div>

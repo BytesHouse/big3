@@ -3,5 +3,5 @@ export interface input {
   title?: string;
   type: string;
   value?: string;
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
 }

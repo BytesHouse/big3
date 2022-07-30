@@ -3,14 +3,37 @@ import './DisplayAdd.css';
 import CustomImageUploading from '../CustomImageUploading/CustomImageUploading';
 import Input from '../../../../ui/Input/Input';
 import ButtonSecondary from '../../../../ui/ButtonSecondary/ButtonSecondary';
+import { Button } from '../../../../ui/ButtonPrimary/Button';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createNewTeam } from '../../../../core/redux/store/reducers/team/teamSlice';
 const DisplayAddTeam = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
+  const [division, setDivision] = useState('');
+  const [foundationYear, setFoundationYear] = useState(0);
+  const [conference, setConference] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [imageUrl, setImageUrl] = useState('');
   const handleName = (value: string) => {
     setName(value);
   };
-  // eslint-disable-next-line no-unused-vars
+  const handleDivision = (value: string) => {
+    setDivision(value);
+  };
+  const handleFoundationYear = (value: number) => {
+    setFoundationYear(value);
+  };
+  const handleConference = (value: string) => {
+    setConference(value);
+  };
   const teamData = {
     name,
+    division,
+    foundationYear,
+    conference,
+    imageUrl,
   };
   return (
     <div className="addItem__display">
@@ -23,10 +46,13 @@ const DisplayAddTeam = () => {
         </div>
         <div className="rightBlock">
           <Input type={'text'} onChange={handleName} title="Name" />
-          <Input type={'text'} onChange={handleName} title="Devision" />
-          <Input type={'text'} onChange={handleName} title="Conference" />
-          <Input type={'text'} onChange={handleName} title="Year of foundation  " />
-          <ButtonSecondary />
+          <Input type={'text'} onChange={handleDivision} title="Devision" />
+          <Input type={'text'} onChange={handleConference} title="Conference" />
+          <Input type={'text'} onChange={handleFoundationYear} title="Year of foundation  " />
+          <div className="rightBlock__control">
+            <ButtonSecondary onClick={() => navigate('/dashboard/teams')} />
+            <Button onClick={() => dispatch(createNewTeam(teamData))}>Save</Button>
+          </div>
         </div>
       </div>
     </div>
