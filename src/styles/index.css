@@ -1,7 +1,7 @@
 :root {
     --dark-grey: #303030;
-    --grey:#707070;
-    --light-grey:#9C9C9C;
+    --grey: #707070;
+    --light-grey: #9C9C9C;
     --lightest-grey-primary: #D1D1D1;
     --lightest-grey-secondary: #F6F6F6;
     --dark-red: #C60E2E;
@@ -14,7 +14,12 @@
     --medium: 768px;
     --large: 992px;
     --extra-large: 1200px;
-    --extra-extra-large: 1400px; 
+    --extra-extra-large: 1400px;
+}
+
+html, body, #root {
+    height: 100%;
+    
 }
 
 @font-face {
@@ -39,12 +44,15 @@
 }
 
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Avenir', sans-serif;
 }
-:active, :hover, :focus {
+
+:active,
+:hover,
+:focus {
     outline: 0;
     outline-offset: 0;
 }

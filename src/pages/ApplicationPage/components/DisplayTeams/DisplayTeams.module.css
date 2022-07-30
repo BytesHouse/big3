@@ -1,6 +1,6 @@
 .display {
     width: 100%;
-    margin-top: 80px;
+    height: 85%;
     padding: 30px 80px;
 }
 
@@ -71,4 +71,5 @@
 .footer {
     display: flex;
     justify-content: space-between;
+    padding: 0 1rem;
 }

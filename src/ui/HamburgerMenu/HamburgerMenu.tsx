@@ -13,11 +13,11 @@ const HamburgerMenu = () => {
   return (
     <div className={style.container}>
       <div>
-        <div onClick={() => onNavigateHandler('/teams')} className={style.flex}>
+        <div onClick={() => onNavigateHandler('teams')} className={style.flex}>
           <img src={teams} alt="teams" />
           <span>Teams</span>
         </div>
-        <div onClick={() => onNavigateHandler('/players')} className={style.flex}>
+        <div onClick={() => onNavigateHandler('players')} className={style.flex}>
           <img src={person} alt="person" />
           <span>Players</span>
         </div>

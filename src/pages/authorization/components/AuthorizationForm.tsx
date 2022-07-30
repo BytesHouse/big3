@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../../core/redux/store/reducers/auth/signInSlice';
-import { Button } from '../../../ui/Button/Button';
+import { Button } from '../../../ui/ButtonPrimary/Button';
 import Input from '../../../ui/Input/Input';
 import style from './AuthorizationForm.module.css';
 import StyledLink from '../../../ui/StyledLink/StyledLink';

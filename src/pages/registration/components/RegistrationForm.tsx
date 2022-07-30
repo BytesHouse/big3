@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../../ui/Button/Button';
+import { Button } from '../../../ui/ButtonPrimary/Button';
 import Input from '../../../ui/Input/Input';
 import style from './RegistrationForm.module.css';
 import StyledLink from '../../../ui/StyledLink/StyledLink';

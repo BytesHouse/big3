@@ -67,7 +67,7 @@ const DisplayTeams = () => {
     <div className={style.display}>
       <div className={style.top}>
         <SearchBox />
-        <AddButton path="addTeam" />
+        <AddButton path="/dashboard/addTeam" />
       </div>
       <div className={style.display__content}>
         {data.length > 0 ? <TeamList /> : <EmptyTeams />}
