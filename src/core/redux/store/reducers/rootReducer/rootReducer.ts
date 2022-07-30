@@ -7,6 +7,7 @@ import { teamsReducer } from '../teams/teamsSlice';
 import { teamDataReducer } from '../team/teamSlice';
 import { playersReducer } from '../players/playersSlice';
 import { playerReducer } from '../player/playerSlice';
+import { dashboardReducer } from '../dashboard/dashboardSlice';
 
 export const rootReducer = combineReducers<IRootState>({
   router: routerReducer,
@@ -16,4 +17,5 @@ export const rootReducer = combineReducers<IRootState>({
   players: playersReducer as any,
   getTeamInfo: teamDataReducer as any,
   getPlayerInfo: playerReducer as any,
+  dashboard: dashboardReducer as any,
 });

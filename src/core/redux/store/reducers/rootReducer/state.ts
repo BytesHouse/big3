@@ -11,4 +11,5 @@ export interface IRootState {
   players: IPlayerData;
   getTeamInfo: ITeamData;
   getPlayerInfo: IPlayerData;
+  dashboard: any;
 }

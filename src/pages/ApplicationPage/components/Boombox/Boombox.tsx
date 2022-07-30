@@ -6,8 +6,8 @@ import 'react-jinke-music-player/assets/index.css';
 import './boombox.css';
 
 const fade = {
-  fadeIn: 2500,
-  fadeOut: 2500,
+  fadeIn: 1000,
+  fadeOut: 1000,
 };
 
 const position = {
@@ -19,21 +19,10 @@ const position = {
 
 const audioList: AudioListProps[] = [
   {
-    name: 'Harder-Better',
+    name: 'BIG3',
     musicSrc:
-      'https://vmlbox.com/wp-content/uploads/2022/03/Daft-Punk-Harder-Better-Faster-Vmlboxcom.mp3',
-    cover: '',
-  },
-  {
-    name: 'Lose-Yourself',
-    musicSrc: 'https://vmlbox.com/wp-content/uploads/2022/03/Eminem-Lose-Yourself-Vmlboxcom.mp3',
-    cover: '',
-  },
-  {
-    name: 'Eye-Of-The-Tiger',
-    musicSrc:
-      'https://vmlbox.com/wp-content/uploads/2022/07/Survivor-Eye-Of-The-Tiger-vmlboxcom.mp3',
-    cover: '',
+      'https://www.dropbox.com/s/gon0c67vs0mhbjq/Ice%20Cube%20-%20BIG3%20Season%203%20Theme%20Song.mp3?raw=1',
+    cover: 'https://sefon.pro/img/artist_photos/ice-cube.jpg',
   },
 ];
 
@@ -43,7 +32,6 @@ const Boombox = () => {
     <>
       <ReactJkMusicPlayer
         theme="auto"
-        glassBg
         volumeFade={fade}
         showThemeSwitch={false}
         showDownload={false}
