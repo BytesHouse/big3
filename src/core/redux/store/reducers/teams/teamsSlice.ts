@@ -26,7 +26,7 @@ export const fetchTeamData: any = createAsyncThunk(
 const teams = createSlice({
   name: 'teams',
   initialState: {
-    teams: {},
+    teams: [],
     status: '',
     error: '',
     isLoading: false,

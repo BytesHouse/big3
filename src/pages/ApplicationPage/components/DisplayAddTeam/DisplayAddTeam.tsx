@@ -7,6 +7,7 @@ import { Button } from '../../../../ui/ButtonPrimary/Button';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createNewTeam } from '../../../../core/redux/store/reducers/team/teamSlice';
+import { ImageListType } from 'react-images-uploading';
 const DisplayAddTeam = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,8 +15,13 @@ const DisplayAddTeam = () => {
   const [division, setDivision] = useState('');
   const [foundationYear, setFoundationYear] = useState(0);
   const [conference, setConference] = useState('');
-  // eslint-disable-next-line no-unused-vars
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState([]);
+
+  const onChange = (imageList: ImageListType, addUpdateIndex: number[] | undefined) => {
+    // data for submit
+    console.log(imageList, addUpdateIndex);
+    setImageUrl(imageList as never[]);
+  };
   const handleName = (value: string) => {
     setName(value);
   };
@@ -42,7 +48,7 @@ const DisplayAddTeam = () => {
           <div className="leftBlock__heading">
             <span>Teams</span> / <span>Add new team</span>
           </div>
-          <CustomImageUploading />
+          <CustomImageUploading value={imageUrl} onChange={onChange} />
         </div>
         <div className="rightBlock">
           <Input type={'text'} onChange={handleName} title="Name" />

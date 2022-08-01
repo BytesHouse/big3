@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
-import ImageUploading, { ImageListType } from 'react-images-uploading';
+import React from 'react';
+import ImageUploading from 'react-images-uploading';
 import test from '../../../../assets/icon/photo.svg';
 import { img, btn, btnDrag } from './styles.ts';
 
-const CustomImageUploading = () => {
-  const [images, setImages] = useState([]);
+const CustomImageUploading = (props: any) => {
+  const { onChange, value } = props;
   const maxNumber = 69;
 
-  const onChange = (imageList: ImageListType, addUpdateIndex: number[] | undefined) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList as never[]);
-  };
   return (
     <div>
-      <ImageUploading value={images} onChange={onChange} maxNumber={maxNumber}>
-        {({ imageList, onImageUpload, onImageUpdate, onImageRemove, isDragging, dragProps }) => (
+      <ImageUploading value={value} onChange={onChange} maxNumber={maxNumber}>
+        {({ imageList, onImageUpload, isDragging, dragProps }) => (
           // write your building UI
           <div>
             <button

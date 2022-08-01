@@ -3,6 +3,9 @@
     display: grid;
     grid-template-columns: 2fr 4fr;
 }
+.container button {
+    width: 100%;
+}
 .wrapper {
     width: 80%;
     min-width: 320px;

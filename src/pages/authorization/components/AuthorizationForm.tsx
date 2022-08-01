@@ -31,7 +31,7 @@ const AuthorizationForm: FC = () => {
     navigate('/dashboard/teams');
   }
   return (
-    <div>
+    <div className={style.container}>
       <form action="">
         <Input onChange={getLoginValue} id="login" type="text" title="Login" />
         <Input onChange={getPassValue} id="password" type="password" title="Password" />
