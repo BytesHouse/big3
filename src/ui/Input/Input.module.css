@@ -39,7 +39,7 @@ transition: ease 0.4s;
     position: relative;
 }
 
-.passwordControl {
+.passwordControlVisible {
     position: absolute;
 	top: 13px;
 	right: 6px;
@@ -47,4 +47,7 @@ transition: ease 0.4s;
 	width: 20px;
 	height: 20px;
 	background: url('../../assets/icon/eye.svg') 0 0 no-repeat;
+}
+.passwordControlInvisible {
+    background: url('../../assets/icon/close_eye.svg') 0 0 no-repeat;
 }

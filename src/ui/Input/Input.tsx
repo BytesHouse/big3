@@ -28,7 +28,7 @@ const Input = (props: input) => {
               id={id}
             />
             {props.type === 'password' && (
-              <a href="#" className={style.passwordControl} onClick={togglePassword}></a>
+              <a href="#" className={style.passwordControlVisible} onClick={togglePassword}></a>
             )}
           </div>
         </label>

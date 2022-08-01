@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-export const PrivateRouter = ({ element, path }: any) => {
+export const PrivateRouter = ({ children }: any) => {
   const Auth = localStorage.getItem('token');
   const error = localStorage.getItem('401');
 
@@ -9,8 +9,8 @@ export const PrivateRouter = ({ element, path }: any) => {
     localStorage.clear();
     window.location.reload();
   };
-  if (!Auth) return <Route path="/" />;
+  if (!Auth) return <Navigate to="/" />;
   if (error) clear();
 
-  return <Route element={element} path={path} />;
+  return children;
 };

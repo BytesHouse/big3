@@ -3,15 +3,16 @@
     display: grid;
     grid-template-columns: 2fr 4fr;
 }
-.container button {
-    width: 100%;
-}
 .wrapper {
     width: 80%;
     min-width: 320px;
     padding: 25px;
     margin: 0 auto;
     align-self: center;
+}
+.btn {
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .title {
@@ -39,4 +40,29 @@
     .image {
         display: none;
     } 
+}
+.text {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text>span {
+    margin-right: 5px;
+    color: var(--grey);
+    font-weight: 500;
+}
+.member {
+    display: flex;
+    justify-content: center;
+}
+.member button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color: red;
+    font-size: 15px;
+    margin-left: 5px;
 }

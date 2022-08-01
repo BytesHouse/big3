@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './Checkbox.module.css';
 
-const Checkbox = (props: any) => {
+const Checkbox = ({ title, onToggle }: any) => {
   return (
     <div className={style.wrapper}>
       <label className={style.container}>
-        {props.title}
+        {title}
         <input type="checkbox" />
         <span className={style.checkmark}></span>
       </label>
