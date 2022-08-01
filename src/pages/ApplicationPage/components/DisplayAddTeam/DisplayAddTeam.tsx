@@ -39,7 +39,7 @@ const DisplayAddTeam = () => {
     division,
     foundationYear,
     conference,
-    imageUrl,
+    imageUrl: '',
   };
   return (
     <div className="addItem__display">
