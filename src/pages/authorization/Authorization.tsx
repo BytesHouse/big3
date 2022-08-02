@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './Registration.module.css';
+import style from './Authorization.module.css';
 import group from '../../assets/images/Group.png';
 import group2 from '../../assets/images/Group2.png';
 import { Checkbox, Input, ButtonPrimary } from '../../ui';

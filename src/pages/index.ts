@@ -1,5 +1,5 @@
-import { ApplicationPage } from './ApplicationPage/ApplicationPage';
-import Registration from './authorization/Registration';
+import { ApplicationPage } from './dashboard/ApplicationPage';
+import Registration from './authorization/Authorization';
 import Components from './Components';
 import { Prolapse } from '../components/Prolapse/Prolapse';
 

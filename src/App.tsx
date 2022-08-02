@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ApplicationPage, Registration, Components, Prolapse } from './pages';
-import DisplayTeams from './pages/ApplicationPage/components/DisplayTeams/DisplayTeams';
-import DisplayAddTeam from './pages/ApplicationPage/components/DisplayAddTeam/DisplayAddTeam';
+import DisplayTeams from './pages/dashboard/components/DisplayTeams/DisplayTeams';
+import DisplayAddTeam from './pages/dashboard/components/DisplayAddTeam/DisplayAddTeam';
 import { PrivateRouter } from './components/PrivateRouter/PrivateRouter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

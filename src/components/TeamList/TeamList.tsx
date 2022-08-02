@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTeamData } from '../../core/redux/store/reducers/teams/teamsSlice';
-import EmptyTeams from '../../pages/ApplicationPage/components/EmptyTeams/EmptyTeams';
+import EmptyTeams from '../../pages/dashboard/components/EmptyTeams/EmptyTeams';
 import { TeamsCard } from '../TeamCard/TeamsCard';
 
 const TeamList: FC = () => {
