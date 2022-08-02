@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { BASE_URL, SIGN_IN } from '../../../../../api/Constants';
 import { IAuthState } from '../../../../../types/models/IAuth';
 
@@ -19,6 +20,7 @@ export const signIn: any = createAsyncThunk(
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('name', response.data.name);
       localStorage.setItem('avatarUrl', response.data.avatarUrl);
+      toast.success(`Hello there ${response.data.name}`);
       return response.data;
     } catch (e) {
       return reject(e);
@@ -28,8 +30,7 @@ export const signIn: any = createAsyncThunk(
 
 const initialState: IAuthState = {
   auth: {},
-  status: '',
-  error: '',
+  isLoading: false,
 };
 
 const SignInSlice = createSlice({
@@ -38,16 +39,14 @@ const SignInSlice = createSlice({
   reducers: {},
   extraReducers: {
     [signIn.pending]: (state) => {
-      state.status = 'loading';
-      state.error = '';
+      state.isLoading = true;
     },
-    [signIn.fulfilled]: (state, action) => {
-      state.status = 'resolved';
-      state.auth = action.payload;
+    [signIn.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.auth = payload;
     },
     [signIn.rejected]: (state) => {
-      state.status = 'rejected';
-      state.error = 'Authorization error';
+      state.isLoading = false;
     },
   },
 });

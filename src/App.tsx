@@ -4,6 +4,8 @@ import { ApplicationPage, Registration, Components, Prolapse } from './pages';
 import DisplayTeams from './pages/ApplicationPage/components/DisplayTeams/DisplayTeams';
 import DisplayAddTeam from './pages/ApplicationPage/components/DisplayAddTeam/DisplayAddTeam';
 import { PrivateRouter } from './components/PrivateRouter/PrivateRouter';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
         <Route path="*" />
         <Route path="components" element={<Components />} />
       </Routes>
+      <ToastContainer hideProgressBar={true} icon={false} closeButton={false} />
     </BrowserRouter>
   );
 }

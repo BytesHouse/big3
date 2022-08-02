@@ -4,4 +4,5 @@ export interface input {
   type: string;
   value?: string;
   onChange: (value: any) => void;
+  name?: any;
 }

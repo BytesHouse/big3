@@ -56,3 +56,11 @@ html, body, #root {
     outline: 0;
     outline-offset: 0;
 }
+
+.Toastify__toast {
+    background: var(--light-red);
+    color: white;
+    font-family: 'Avenir', sans-serif;
+    min-height: 40px;
+    text-align: center;
+}
