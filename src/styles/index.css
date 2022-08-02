@@ -17,9 +17,8 @@
     --extra-extra-large: 1400px;
 }
 
-html, body, #root {
+html, #root, body {
     height: 100%;
-    
 }
 
 @font-face {
