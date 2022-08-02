@@ -4,9 +4,8 @@ import group from '../../assets/images/Group.png';
 import group2 from '../../assets/images/Group2.png';
 import { Checkbox, Input, ButtonPrimary } from '../../ui';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { signUp } from '../../core/redux/store/reducers/auth/signUpSlice';
-import { signIn } from '../../core/redux/store/reducers/auth/signInSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUp, signIn } from '../../core/redux/store/reducers/auth/authSlice';
 
 const initialState = {
   userName: '',
@@ -19,6 +18,8 @@ const initialState = {
 
 const Registration = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
+  const { auth, isLoading } = useSelector((store: any) => store.auth);
   const [values, setValues] = useState(initialState);
   const handleChange = (e: any) => {
     const name = e.target.name;
@@ -74,7 +75,7 @@ const Registration = () => {
               title="I accept the agreement"
             />
           )}
-          <ButtonPrimary className={style.btn} typeButton="submit">
+          <ButtonPrimary isDisabled={isLoading} className={style.btn} typeButton="submit">
             {values.isMember ? 'Sign In' : 'Sign up'}
           </ButtonPrimary>
           <div className={style.member}>
