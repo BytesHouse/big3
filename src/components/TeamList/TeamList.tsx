@@ -9,8 +9,7 @@ const TeamList: FC = () => {
   useEffect(() => {
     dispatch(fetchTeamData('Team/GetTeams'));
   }, []);
-  const teams = useSelector((store: any) => store.teamsReducer.teams);
-  console.log(teams);
+  const teams = useSelector((store: any) => store.teams);
   if (!teams.data) {
     return <EmptyTeams />;
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './Registration.module.css';
 import group from '../../assets/images/Group.png';
 import group2 from '../../assets/images/Group2.png';
@@ -6,6 +6,7 @@ import { Checkbox, Input, ButtonPrimary } from '../../ui';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp, signIn } from '../../core/redux/store/reducers/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   userName: '',
@@ -21,6 +22,7 @@ const Registration = () => {
   // eslint-disable-next-line no-unused-vars
   const { auth, isLoading } = useSelector((store: any) => store.auth);
   const [values, setValues] = useState(initialState);
+  const navigate = useNavigate();
   const handleChange = (e: any) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -46,6 +48,13 @@ const Registration = () => {
   const toogleAcceptAgreement = () => {
     setValues({ ...values, confirmAgreement: !values.confirmAgreement });
   };
+  useEffect(() => {
+    if (auth) {
+      setTimeout(() => {
+        navigate('/dashboard/teams');
+      }, 2000);
+    }
+  }, [auth]);
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
