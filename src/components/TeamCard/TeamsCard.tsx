@@ -4,11 +4,12 @@ import { ITeamData } from '../../types/types';
 
 interface ITeamCardProps {
   team: ITeamData;
+  onClick: () => void;
 }
 
-export const TeamsCard: React.FC<ITeamCardProps> = ({ team }) => {
+export const TeamsCard: React.FC<ITeamCardProps> = ({ team, onClick }) => {
   return (
-    <div className={style.container}>
+    <div onClick={onClick} className={style.container}>
       <div className={style.topBlock}>
         <img src={team.imageUrl} alt="Team" />
       </div>

@@ -4,7 +4,6 @@ import React from 'react';
 import HamburgerMenu from '../../ui/HamburgerMenu/HamburgerMenu';
 import Navigation from '../../ui/Navigation/Navigation';
 import DisplayDashboard from './components/DisplayDashboard/DisplayDashboard';
-import Boombox from './components/Boombox/Boombox';
 // CSS
 import style from './Dashboard.module.css';
 
@@ -15,7 +14,6 @@ export const ApplicationPage: React.FC = () => {
       <div className={style.wrapper}>
         <HamburgerMenu />
         <DisplayDashboard />
-        <Boombox />
       </div>
     </div>
   );
