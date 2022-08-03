@@ -1,0 +1,24 @@
+.wrapper {
+    height: 100%;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.wrapper img {
+    max-width: 100%;
+}
+
+.wrapper h2 {
+    color: var(--lightest-red);
+    font-weight: 800;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.wrapper p {
+    color: var(--grey);
+    font-weight: 400;
+    font-size: 18px;
+}

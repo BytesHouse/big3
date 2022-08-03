@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ApplicationPage, Registration, Components, Prolapse } from './pages';
+import { ApplicationPage, Registration, Components, Prolapse, Error } from './pages';
 import DisplayTeams from './pages/dashboard/components/DisplayTeams/DisplayTeams';
 import DisplayAddTeam from './pages/dashboard/components/DisplayAddTeam/DisplayAddTeam';
 import { PrivateRouter } from './components/PrivateRouter/PrivateRouter';
@@ -32,7 +32,7 @@ function App() {
           <Route path="addPlayer" />
         </Route>
         <Route path="/" element={<Registration />} />
-        <Route path="*" />
+        <Route path="*" element={<Error />} />
         <Route path="components" element={<Components />} />
       </Routes>
       <ToastContainer hideProgressBar={true} icon={false} closeButton={false} />

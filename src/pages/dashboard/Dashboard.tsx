@@ -6,7 +6,7 @@ import Navigation from '../../ui/Navigation/Navigation';
 import DisplayDashboard from './components/DisplayDashboard/DisplayDashboard';
 import Boombox from './components/Boombox/Boombox';
 // CSS
-import style from './ApplicationPage.module.css';
+import style from './Dashboard.module.css';
 
 export const ApplicationPage: React.FC = () => {
   return (
