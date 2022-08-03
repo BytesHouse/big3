@@ -3,7 +3,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { BASE_URL, SIGN_IN, SIGN_UP } from '../../../../../api/Constants';
 import { IAuthState } from '../../../../../types/models/IAuth';
-import { addUserToLocalStorage, getUserFromLocalStorage } from '../../../../utils/localStorage';
+import {
+  addUserToLocalStorage,
+  deleteUserFromLocalStorage,
+  getUserFromLocalStorage,
+} from '../../../../utils/localStorage';
 
 const linkSignUp = BASE_URL + SIGN_UP;
 const linkSignIn = BASE_URL + SIGN_IN;
@@ -53,7 +57,12 @@ const initialState: IAuthState = {
 const AuthSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logoutUser: (state) => {
+      state.auth = null;
+      deleteUserFromLocalStorage();
+    },
+  },
   extraReducers: {
     [signUp.pending]: (state) => {
       state.isLoading = true;
@@ -80,5 +89,7 @@ const AuthSlice = createSlice({
     },
   },
 });
+
+export const { logoutUser } = AuthSlice.actions;
 
 export const AuthReducer = AuthSlice.reducer;

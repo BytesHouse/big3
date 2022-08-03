@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   page: 0,
+  isSidebarOpen: false,
 };
 
 const Dashboard = createSlice({
@@ -11,8 +12,11 @@ const Dashboard = createSlice({
     changePage: (state, action) => {
       state.page = action.payload;
     },
+    toggleSideBar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
   },
 });
-export const { changePage } = Dashboard.actions;
+export const { changePage, toggleSideBar } = Dashboard.actions;
 
 export const dashboardReducer = Dashboard.reducer;

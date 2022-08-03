@@ -3,8 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import style from './Hamburger.module.css';
 import signOut from '../../assets/icon/input.svg';
 import { PersonIcon, GroupPersonIcon } from '../../assets/icon/icons.tsx';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../core/redux/store/reducers/auth/authSlice';
+// import { useSelector } from 'react-redux';
 
 const HamburgerMenu = () => {
+  const dispatch = useDispatch();
+  // const { dashboard } = useSelector((store: any) => store.dashboard);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const onNavigateHandler = (url: string, page: number) => {
@@ -24,7 +29,13 @@ const HamburgerMenu = () => {
         </div>
       </div>
       <div>
-        <div onClick={() => onNavigateHandler('/', 0)} className={style.flex}>
+        <div
+          onClick={() => {
+            dispatch(logoutUser());
+            navigate('/');
+          }}
+          className={style.flex}
+        >
           <img src={signOut} alt="person" />
           <span>Sign out</span>
         </div>

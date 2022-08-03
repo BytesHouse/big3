@@ -1,4 +1,4 @@
 export interface IAuthState {
-  auth: object;
+  auth: object | null;
   isLoading: boolean;
 }

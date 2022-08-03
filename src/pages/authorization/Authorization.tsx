@@ -52,7 +52,7 @@ const Registration = () => {
     if (auth) {
       setTimeout(() => {
         navigate('/dashboard/teams');
-      }, 2000);
+      }, 3500);
     }
   }, [auth]);
   return (

@@ -30,9 +30,7 @@ const DisplayAddTeam = () => {
       const img = saveImageApi(image);
       img.then(function (result) {
         setValues({ ...values, imageUrl: `http://dev.trainee.dex-it.ru${result}` });
-        console.log(result);
       });
-      console.log(img);
       return;
     }
     const value = e.target.value;
