@@ -42,8 +42,7 @@ export const signIn: any = createAsyncThunk(
       toast.success(`Hello there ${response.data.name}`);
       return response.data;
     } catch (error: any) {
-      if (error.response.data.title === 'Unauthorized')
-        toast.error('The login or password is incorrect');
+      if (error.response.status === 401) toast.error('The login or password is incorrect');
       return reject(error);
     }
   }

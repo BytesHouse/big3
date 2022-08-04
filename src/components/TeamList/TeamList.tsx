@@ -1,23 +1,18 @@
-import React, { FC, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchTeamData } from '../../core/redux/store/reducers/teams/teamsSlice';
 import EmptyTeams from '../../pages/dashboard/components/EmptyTeams/EmptyTeams';
 import { TeamsCard } from '../TeamCard/TeamsCard';
 
-const TeamList: FC = () => {
+const TeamList = (props: any) => {
+  const { teams } = props;
+  console.log(teams);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const teams = useSelector((store: any) => store.teams);
-  useEffect(() => {
-    dispatch(fetchTeamData('Team/GetTeams'));
-  }, []);
-  if (!teams.teams.data) {
+  if (!teams.data || teams.data.length === 0) {
     return <EmptyTeams />;
   }
   return (
     <>
-      {teams.teams.data.map((team: any) => (
+      {teams.data.map((team: any) => (
         <TeamsCard key={team.id} team={team} onClick={() => navigate(`:${team.id}`)} />
       ))}
     </>

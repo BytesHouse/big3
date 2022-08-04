@@ -1,30 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // Components
 import Pagination from '../../../../ui/Pagination/Pagination';
 import AddButton from '../../../../ui/AddButton/AddButton';
 import SearchBox from '../../../../ui/SearchBox/SearchBox';
 import SingleSelect from '../../../../ui/SingleSelect/SingleSelect';
 import { selectOption } from '../../../../ui/SingleSelect/options';
-import TeamList from '../../../../components/TeamList/TeamList';
+import PlayersList from '../../../../components/PlayersList/PlayersList';
 // CSS
-import style from './DisplayTeams.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTeamData } from '../../../../core/redux/store/reducers/teams/teamsSlice';
+import style from './DisplayPlayers.module.css';
 
-const DisplayTeams = () => {
-  const { teams } = useSelector((store: any) => store.teams);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchTeamData('Team/GetTeams'));
-  }, []);
+const DisplayPlayers = () => {
   return (
     <div className={style.display}>
       <div className={style.top}>
         <SearchBox />
-        <AddButton path="/dashboard/addTeam" />
+        <AddButton path="/dashboard/addPlayer" />
       </div>
       <div className={style.display__content}>
-        <TeamList teams={teams} />
+        <PlayersList />
       </div>
       <div className={style.footer}>
         <Pagination
@@ -39,4 +32,4 @@ const DisplayTeams = () => {
   );
 };
 
-export default DisplayTeams;
+export default DisplayPlayers;

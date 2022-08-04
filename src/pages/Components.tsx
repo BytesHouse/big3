@@ -13,7 +13,7 @@ import Checkbox from '../ui/Checkbox/Checkbox';
 import StyledLink from '../ui/StyledLink/StyledLink';
 import Pagination from '../ui/Pagination/Pagination';
 import HamburgerMenu from '../ui/HamburgerMenu/HamburgerMenu';
-// import { TeamsCard } from '../components/TeamCard/TeamsCard';
+// import { PlayerCard } from '../components/TeamCard/PlayerCard';
 import TeamList from '../components/TeamList/TeamList';
 import TeamInfo from '../components/TeamInfo/TeamInfo';
 

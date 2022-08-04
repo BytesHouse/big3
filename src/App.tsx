@@ -7,6 +7,7 @@ import { PrivateRouter } from './components/PrivateRouter/PrivateRouter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TeamInfo from './components/TeamInfo/TeamInfo';
+import DisplayPlayers from './pages/dashboard/components/DisplayPlayers/DisplayPlayers';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
 
           <Route path="addTeam" element={<DisplayAddTeam />} />
           <Route path="edit/:id" />
-          <Route path="players" element={<DisplayTeams />}>
+          <Route path="players" element={<DisplayPlayers />}>
             <Route path=":id" />
           </Route>
           <Route path="edit/:id" />
