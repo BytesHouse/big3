@@ -4,13 +4,16 @@ import { CreateIcon, TrashIcon } from '../../assets/icon/icons';
 import style from './TeamInfo.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTeamData } from '../../core/redux/store/reducers/team/teamSlice';
+import { useParams } from 'react-router-dom';
 
 const TeamInfo = (props: ITeamData) => {
-  const { name, foundationYear, division, conference, imageUrl, id } = props;
+  const { teamInfo } = useSelector((store: any) => store.getTeamInfo);
   const dispatch = useDispatch();
-  const team = useSelector((store: any) => store.getTeamInfo);
+  const params = useParams();
+  const { name, foundationYear, division, conference, imageUrl } = teamInfo;
+  console.log(teamInfo);
   useEffect(() => {
-    dispatch(fetchTeamData(id));
+    dispatch(fetchTeamData(params.id));
   }, []);
   return (
     <div className={style.container}>
@@ -30,8 +33,8 @@ const TeamInfo = (props: ITeamData) => {
           <img src={imageUrl} alt={name} />
         </div>
         <div>
-          <h1>{name}</h1>
-          <div>
+          <h1 className={style.name}>{name}</h1>
+          <div className={style.centerBlock}>
             <div>
               <h3>Year of foundation</h3>
               <h4>{foundationYear}</h4>

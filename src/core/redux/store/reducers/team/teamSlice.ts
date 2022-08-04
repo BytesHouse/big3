@@ -43,7 +43,7 @@ const teamData = createSlice({
     },
     [fetchTeamData.fulfilled]: (state, action) => {
       state.status = 'resolved';
-      state.teamInfo = [action.payload.data];
+      state.teamInfo = action.payload.data;
     },
     [createNewTeam.fulfilled]: (state, action) => {
       state.teamInfo = { ...state, ...action.payload };
