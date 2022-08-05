@@ -6,6 +6,8 @@
     padding: 0px 1rem 2rem 1rem;
     grid-column-start: 1;
     grid-column-end: 4;
+    box-shadow: 10px 10px 21px rgba(122, 87, 87, 0.249),
+    -10px -10px 21px #fff;
 }
 .container img {
     max-width: 100%;
