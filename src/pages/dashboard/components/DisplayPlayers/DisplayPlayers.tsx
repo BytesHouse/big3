@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // Components
 import Pagination from '../../../../ui/Pagination/Pagination';
 import AddButton from '../../../../ui/AddButton/AddButton';
@@ -9,8 +9,15 @@ import PlayersList from '../../../../components/PlayersList/PlayersList';
 // CSS
 import style from './DisplayPlayers.module.css';
 import { Multiselect } from '../../../../ui';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPlayers } from '../../../../core/redux/store/reducers/players/playersSlice';
 
 const DisplayPlayers = () => {
+  const { players } = useSelector((store: any) => store.players);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPlayers('Player/GetPlayers'));
+  }, []);
   return (
     <div className={style.display}>
       <div className={style.top}>
@@ -21,7 +28,7 @@ const DisplayPlayers = () => {
         <AddButton path="/dashboard/addPlayer" />
       </div>
       <div className={style.display__content}>
-        <PlayersList />
+        <PlayersList players={players} />
       </div>
       <div className={style.footer}>
         <Pagination

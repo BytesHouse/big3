@@ -46,7 +46,11 @@ const DisplayAddTeam = () => {
           <div className="field__wrapper">
             <label htmlFor="file-input" className="field__file-wrapper">
               <div className="field__file-fake">
-                <img src={values.imageUrl ? values.imageUrl : addPhotoTeam} alt="" />
+                <img
+                  className="image__container"
+                  src={values.imageUrl ? values.imageUrl : addPhotoTeam}
+                  alt="team"
+                />
               </div>
             </label>
             <input

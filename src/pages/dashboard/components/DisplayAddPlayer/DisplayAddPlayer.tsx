@@ -8,10 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveImageApi } from '../../../../api/requests/imageSaveApi';
 import { createNewPlayer } from '../../../../core/redux/store/reducers/player/playerSlice';
-// import { SingleSelect } from '../../../../ui';
 import { fetchPlayersPosition } from '../../../../core/redux/store/reducers/players/playersSlice';
 import { SingleSelect } from '../../../../ui';
-// import { ITeamData } from '../../../../types/types';
 import { fetchTeamData } from '../../../../core/redux/store/reducers/teams/teamsSlice';
 
 const initialState = {
@@ -59,8 +57,6 @@ const DisplayAddPlayer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
-  const [position, setPosition] = useState([]);
-  console.log(position);
 
   const handleChange = (e: any) => {
     const name = e.target.name;
@@ -73,8 +69,15 @@ const DisplayAddPlayer = () => {
       return;
     }
     const value = e.target.value;
-    console.log(value);
     setValues({ ...values, [name]: value });
+  };
+  const handleSelectPosition = (e: any) => {
+    const value = e.value;
+    setValues({ ...values, position: value });
+  };
+  const handleSelectTeam = (e: any) => {
+    const value = e.value;
+    setValues({ ...values, team: value });
   };
   useEffect(() => {
     dispatch(fetchPlayersPosition());
@@ -92,7 +95,11 @@ const DisplayAddPlayer = () => {
           <div className="field__wrapper">
             <label htmlFor="file-input" className="field__file-wrapper">
               <div className="field__file-fake">
-                <img src={values.avatarUrl ? values.avatarUrl : addPhotoTeam} alt="" />
+                <img
+                  className="image__container"
+                  src={values.avatarUrl ? values.avatarUrl : addPhotoTeam}
+                  alt=""
+                />
               </div>
             </label>
             <input
@@ -111,7 +118,7 @@ const DisplayAddPlayer = () => {
             <div className="label">Position</div>
             <SingleSelect
               name="position"
-              onChange={setPosition}
+              onChange={handleSelectPosition}
               style={{ width: '100%' }}
               data={newPos}
             />
@@ -120,7 +127,7 @@ const DisplayAddPlayer = () => {
             <div className="label">Team</div>
             <SingleSelect
               name="team"
-              onChange={handleChange}
+              onChange={handleSelectTeam}
               style={{ width: '100%' }}
               data={newTeam}
             />
