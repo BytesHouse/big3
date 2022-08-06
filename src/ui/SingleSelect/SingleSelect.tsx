@@ -1,13 +1,11 @@
 import React from 'react';
 import Select from 'react-select';
 
-// const options = [
-//   { value: 'chocolate', label: 'Chocolate' },
-//   { value: 'strawberry', label: 'Strawberry' },
-//   { value: 'vanilla', label: 'Vanilla' },
-// ];
 interface propOption {
   data?: object[];
+  style?: {};
+  onChange?: (e: any) => void;
+  name?: string;
 }
 
 const SingleSelect = (props: propOption) => {
@@ -38,7 +36,7 @@ const SingleSelect = (props: propOption) => {
     }),
     container: (styles: any) => ({
       ...styles,
-      width: '100px',
+      width: '100%',
     }),
     indicatorsContainer: (styles: any) => ({
       ...styles,
@@ -48,8 +46,16 @@ const SingleSelect = (props: propOption) => {
       },
     }),
   };
-
-  return <Select menuPlacement="auto" options={props.data} styles={colourStyles} />;
+  const { data, onChange, name } = props;
+  return (
+    <Select
+      name={name}
+      onChange={onChange}
+      menuPlacement="auto"
+      options={data}
+      styles={colourStyles}
+    />
+  );
 };
 
 export default SingleSelect;

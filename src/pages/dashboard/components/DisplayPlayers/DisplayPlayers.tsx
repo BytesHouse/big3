@@ -8,12 +8,16 @@ import { selectOption } from '../../../../ui/SingleSelect/options';
 import PlayersList from '../../../../components/PlayersList/PlayersList';
 // CSS
 import style from './DisplayPlayers.module.css';
+import { Multiselect } from '../../../../ui';
 
 const DisplayPlayers = () => {
   return (
     <div className={style.display}>
       <div className={style.top}>
-        <SearchBox />
+        <div className={style.input__wrapper}>
+          <SearchBox />
+          <Multiselect />
+        </div>
         <AddButton path="/dashboard/addPlayer" />
       </div>
       <div className={style.display__content}>

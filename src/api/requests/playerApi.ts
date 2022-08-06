@@ -7,12 +7,13 @@ import {
   deletePlayerById,
   UPDATE_PLAYER,
   SEARCH_PLAYER,
+  BASE_URL,
 } from '../Constants.ts';
 
 // CRUD Player
 // Create Player
 export async function addPlayer(data: IPlayerData) {
-  const response = await api.post(ADD_PLAYER, data);
+  const response = await api.post(BASE_URL + ADD_PLAYER, data);
 
   return response.data;
 }
@@ -31,9 +32,8 @@ export async function getPlayerId(id: number) {
 }
 
 export async function getPosition() {
-  const response = await api.get(GET_POSITION);
-
-  return response.data;
+  const response = await api.get(BASE_URL + GET_POSITION);
+  return response;
 }
 
 // Update Player

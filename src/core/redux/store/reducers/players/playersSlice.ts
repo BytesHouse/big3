@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getPlayers, getPlayerSearch } from '../../../../../api/requests/playerApi';
+import { getPlayers, getPlayerSearch, getPosition } from '../../../../../api/requests/playerApi';
 
 export const search: any = createAsyncThunk('player/search', async (param: any) => {
   const response = await getPlayerSearch(param);
@@ -19,16 +19,28 @@ export const fetchPlayers: any = createAsyncThunk(
   }
 );
 
+export const fetchPlayersPosition: any = createAsyncThunk('player/fetchPositions', async () => {
+  try {
+    const response = await getPosition();
+    const data = response.data;
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 interface PlayersState {
   players: object;
   status: string;
   error: string;
+  positions: [];
 }
 
 const initialState: PlayersState = {
   players: {},
   status: '',
   error: '',
+  positions: [],
 };
 
 const players = createSlice({
@@ -48,8 +60,16 @@ const players = createSlice({
       state.error = 'Authorization error';
     },
 
-    [fetchPlayers.fulfilled]: (state, action) => {
-      state.players = action.payload.data;
+    [fetchPlayersPosition.pending]: (state, action) => {
+      state.status = 'loading';
+    },
+    [fetchPlayersPosition.fulfilled]: (state, action) => {
+      state.status = 'resolved';
+      state.positions = action.payload;
+    },
+    [fetchPlayers.rejected]: (state) => {
+      state.status = 'rejected';
+      state.error = 'Authorization error';
     },
   },
 });

@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TeamInfo from './components/TeamInfo/TeamInfo';
 import DisplayPlayers from './pages/dashboard/components/DisplayPlayers/DisplayPlayers';
+import DisplayAddPlayer from './pages/dashboard/components/DisplayAddPlayer/DisplayAddPlayer';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path=":id" />
           </Route>
           <Route path="edit/:id" />
-          <Route path="addPlayer" />
+          <Route path="addPlayer" element={<DisplayAddPlayer />} />
         </Route>
         <Route path="/" element={<Registration />} />
         <Route path="*" element={<Error />} />
