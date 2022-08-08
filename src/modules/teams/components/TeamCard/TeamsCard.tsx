@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './TeamsCard.module.css';
-import { ITeamData } from '../../types/types';
+import { ITeamData } from '../../../../types/types';
 
 interface ITeamCardProps {
   team: ITeamData;

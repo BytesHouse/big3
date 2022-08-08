@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
+import { IPlayerProps } from '../../interfaces/playerCardProps';
 import style from './PlayerCard.module.css';
-
-interface IPlayerProps {
-  player: any;
-  onClick: () => void;
-}
 
 export const PlayerCard: FC<IPlayerProps> = ({ player, onClick }) => {
   return (
