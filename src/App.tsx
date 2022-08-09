@@ -6,9 +6,9 @@ import DisplayAddTeam from './pages/dashboard/components/DisplayAddTeam/DisplayA
 import { PrivateRouter } from './components/PrivateRouter/PrivateRouter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import TeamInfo from './components/TeamInfo/TeamInfo';
 import DisplayPlayers from './pages/dashboard/components/DisplayPlayers/DisplayPlayers';
 import DisplayAddPlayer from './pages/dashboard/components/DisplayAddPlayer/DisplayAddPlayer';
+import TeamInfo from './modules/teams/components/TeamInfo/TeamInfo';
 
 function App() {
   return (

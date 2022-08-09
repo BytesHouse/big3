@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchTeamData } from '../../core/redux/store/reducers/team/teamSlice';
-import EmptyTeams from '../../pages/dashboard/components/EmptyTeams/EmptyTeams';
+import { fetchTeamData } from '../../../../core/redux/store/reducers/team/teamSlice';
+import EmptyTeams from '../../../../pages/dashboard/components/EmptyTeams/EmptyTeams';
 import { TeamsCard } from '../TeamCard/TeamsCard';
 
 const TeamList = (props: any) => {

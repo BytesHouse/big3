@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { fetchPlayer } from '../../../../core/redux/store/reducers/player/playerSlice';
+import EmptyPlayers from '../../../../pages/dashboard/components/EmptyPlayers/EmptyPlayers';
 import { PlayerCard } from '../PlayerCard/PlayerCard';
-import EmptyPlayers from '../../pages/dashboard/components/EmptyPlayers/EmptyPlayers';
-import { fetchPlayer } from '../../core/redux/store/reducers/player/playerSlice';
 
 const PlayersList = (props: any) => {
   const { players } = props;

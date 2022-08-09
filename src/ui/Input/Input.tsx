@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import style from './Input.module.css';
 import { input } from '../../types/input';
+import { useFormContext } from 'react-hook-form';
 
 const Input = (props: input) => {
-  const { id, title, onChange, name } = props;
+  const { id, title, onChange, name, required, children } = props;
+  const { register } = useFormContext();
   const [view, setView] = useState(props.type);
 
   const togglePassword = () => {
@@ -20,10 +22,18 @@ const Input = (props: input) => {
         <label htmlFor={title}>
           <div className={style.label}>{title}</div>
           <div className={style.password}>
-            <input onChange={onChange} type={view} name={name} className={style.inp} id={id} />
+            <input
+              {...register(name, { required: required })}
+              onChange={onChange}
+              type={view}
+              name={name}
+              className={style.inp}
+              id={id}
+            />
             {props.type === 'password' && (
               <a href="#" className={style.passwordControlVisible} onClick={togglePassword}></a>
             )}
+            {children}
           </div>
         </label>
         <div className={style.hide}>SomeText</div>

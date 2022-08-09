@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { ITeamData } from '../../api/dto/teams';
-import { CreateIcon, TrashIcon } from '../../assets/icon/icons';
+import { ITeamData } from '../../../../api/dto/teams';
+import { CreateIcon, TrashIcon } from '../../../../assets/icon/icons';
 import style from './TeamInfo.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTeamData } from '../../core/redux/store/reducers/team/teamSlice';
+import { fetchTeamData } from '../../../../core/redux/store/reducers/team/teamSlice';
 import { useParams } from 'react-router-dom';
 
 const TeamInfo = (props: ITeamData) => {

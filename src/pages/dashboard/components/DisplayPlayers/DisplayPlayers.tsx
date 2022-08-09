@@ -5,12 +5,12 @@ import AddButton from '../../../../ui/AddButton/AddButton';
 import SearchBox from '../../../../ui/SearchBox/SearchBox';
 import SingleSelect from '../../../../ui/SingleSelect/SingleSelect';
 import { selectOption } from '../../../../ui/SingleSelect/options';
-import PlayersList from '../../../../components/PlayersList/PlayersList';
 // CSS
 import style from './DisplayPlayers.module.css';
 import { Multiselect } from '../../../../ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPlayers } from '../../../../core/redux/store/reducers/players/playersSlice';
+import PlayersList from '../../../../modules/players/components/PlayersList/PlayersList';
 
 const DisplayPlayers = () => {
   const { players } = useSelector((store: any) => store.players);

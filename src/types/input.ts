@@ -5,4 +5,7 @@ export interface input {
   value?: string;
   onChange: (value: any) => void;
   name?: any;
+  register?: any;
+  required?: any;
+  children?: any;
 }

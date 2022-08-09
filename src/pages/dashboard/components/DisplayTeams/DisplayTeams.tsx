@@ -5,11 +5,11 @@ import AddButton from '../../../../ui/AddButton/AddButton';
 import SearchBox from '../../../../ui/SearchBox/SearchBox';
 import SingleSelect from '../../../../ui/SingleSelect/SingleSelect';
 import { selectOption } from '../../../../ui/SingleSelect/options';
-import TeamList from '../../../../components/TeamList/TeamList';
 // CSS
 import style from './DisplayTeams.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTeamData } from '../../../../core/redux/store/reducers/teams/teamsSlice';
+import TeamList from '../../../../modules/teams/components/TeamList/TeamList';
 
 const DisplayTeams = () => {
   const { teams } = useSelector((store: any) => store.teams);
