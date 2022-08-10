@@ -41,7 +41,34 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-bottom: 35px;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    color: var(--grey);
+    padding: 1rem 0;
+    text-transform: capitalize;
+    transition: 0.4s;
+  }
+  .nav-link:hover {
+    color: var(--red);
+  }
+  .nav-link:hover .icon {
+    #path0,
+    #path1 {
+      fill: var(--red);
+    }
+  }
+  .active {
+    color: var(--red);
+  }
+  .active .icon {
+    #path0,
+    #path1 {
+      fill: var(--red);
+    }
   }
 `;
 export default Wrapper;

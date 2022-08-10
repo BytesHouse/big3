@@ -1,34 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../../core/redux/store/reducers/auth/authSlice';
 // import style from './Hamburger.module.css';
 import Wrapper from '../../assets/wrappers/sidebar';
 import signOut from '../../assets/icon/input.svg';
-import { PersonIcon, GroupPersonIcon } from '../../assets/icon/icons.tsx';
+import links from '../../core/utils/links';
 
 const HamburgerMenu = () => {
   const dispatch = useDispatch();
   const { isSidebarOpen } = useSelector((store: any) => store.dashboard);
   console.log(isSidebarOpen);
-  const [page, setPage] = useState(1);
   const navigate = useNavigate();
-  const onNavigateHandler = (url: string, page: number) => {
-    navigate(url);
-    setPage(page);
-  };
   return (
     <Wrapper>
       <div className={isSidebarOpen ? 'container show' : 'container hide'}>
         <div>
-          <div onClick={() => onNavigateHandler('teams', 1)} className="flex">
-            {page === 1 ? <GroupPersonIcon color="red" /> : <GroupPersonIcon color="#9C9C9C" />}
-            <span>Teams</span>
-          </div>
-          <div onClick={() => onNavigateHandler('players', 2)} className="flex">
-            {page === 2 ? <PersonIcon color="red" /> : <PersonIcon color="#9C9C9C" />}
-            <span>Players</span>
-          </div>
+          {links.map((link) => {
+            const { id, text, path, icon } = link;
+            return (
+              <NavLink
+                key={id}
+                to={path}
+                className={({ isActive }) => {
+                  return isActive ? 'nav-link active' : 'nav-link';
+                }}
+              >
+                <div className="flex">
+                  <span className="icon">{icon}</span>
+                  {text}
+                </div>
+              </NavLink>
+            );
+          })}
         </div>
         <div>
           <div

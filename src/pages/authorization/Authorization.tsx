@@ -69,7 +69,7 @@ const Registration = () => {
     if (auth) {
       setTimeout(() => {
         navigate('/dashboard/teams');
-      }, 3500);
+      }, 2500);
     }
   }, [auth]);
   return (
