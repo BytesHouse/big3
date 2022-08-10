@@ -17,7 +17,7 @@
     --extra-extra-large: 1400px;
 }
 
-html, #root, body {
+html, body {
     height: 100%;
 }
 

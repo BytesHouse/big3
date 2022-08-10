@@ -21,7 +21,7 @@ const DisplayTeams = () => {
     <div className={style.display}>
       <div className={style.top}>
         <SearchBox />
-        <AddButton path="/dashboard/addTeam" />
+        <AddButton path="/addTeam" />
       </div>
       <div className={style.display__content}>
         <TeamList teams={teams} />

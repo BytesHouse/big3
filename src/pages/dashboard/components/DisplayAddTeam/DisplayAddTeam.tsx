@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { createNewTeam } from '../../../../core/redux/store/reducers/team/teamSlice';
 import { saveImageApi } from '../../../../api/requests/imageSaveApi';
 // import { BASE_URL } from '../../../../api/Constants';
+import { useForm, FormProvider } from 'react-hook-form';
 
 const initialState = {
   name: '',
@@ -19,6 +20,7 @@ const initialState = {
 };
 
 const DisplayAddTeam = () => {
+  const methods = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
@@ -64,15 +66,19 @@ const DisplayAddTeam = () => {
           </div>
         </div>
         <div className="rightBlock">
-          <Input type={'text'} onChange={handleChange} title="Name" name="name" />
-          <Input type={'text'} onChange={handleChange} title="Devision" name="devision" />
-          <Input type={'text'} onChange={handleChange} title="Conference" name="conference" />
-          <Input
-            type={'text'}
-            onChange={handleChange}
-            title="Year of foundation"
-            name="foundationYear"
-          />
+          <FormProvider {...methods}>
+            <form action="">
+              <Input type={'text'} onChange={handleChange} title="Name" name="name" />
+              <Input type={'text'} onChange={handleChange} title="Devision" name="devision" />
+              <Input type={'text'} onChange={handleChange} title="Conference" name="conference" />
+              <Input
+                type={'text'}
+                onChange={handleChange}
+                title="Year of foundation"
+                name="foundationYear"
+              />
+            </form>
+          </FormProvider>
           <div className="rightBlock__control">
             <ButtonSecondary onClick={() => navigate('/dashboard/teams')} />
             <Button onClick={() => dispatch(createNewTeam(values))}>Save</Button>

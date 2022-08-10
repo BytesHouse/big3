@@ -11,6 +11,7 @@ import { createNewPlayer } from '../../../../core/redux/store/reducers/player/pl
 import { fetchPlayersPosition } from '../../../../core/redux/store/reducers/players/playersSlice';
 import { SingleSelect } from '../../../../ui';
 import { fetchTeamData } from '../../../../core/redux/store/reducers/teams/teamsSlice';
+import { useForm, FormProvider } from 'react-hook-form';
 
 const initialState = {
   avatarUrl: '',
@@ -52,6 +53,7 @@ const newArrayTeam = (arr: any) => {
 };
 
 const DisplayAddPlayer = () => {
+  const methods = useForm();
   const { positions } = useSelector((store: any) => store.players);
   const { teams } = useSelector((store: any) => store.teams);
   const dispatch = useDispatch();
@@ -113,33 +115,37 @@ const DisplayAddPlayer = () => {
           </div>
         </div>
         <div className="rightBlock">
-          <Input type={'text'} onChange={handleChange} title="Name" name="name" />
-          <div className="select__wrapper">
-            <div className="label">Position</div>
-            <SingleSelect
-              name="position"
-              onChange={handleSelectPosition}
-              style={{ width: '100%' }}
-              data={newPos}
-            />
-          </div>
-          <div className="select__wrapper">
-            <div className="label">Team</div>
-            <SingleSelect
-              name="team"
-              onChange={handleSelectTeam}
-              style={{ width: '100%' }}
-              data={newTeam}
-            />
-          </div>
-          <div className="flex">
-            <Input type={'number'} onChange={handleChange} title="Height (cm)" name="height" />
-            <Input type={'number'} onChange={handleChange} title="Weight (kg)" name="weight" />
-          </div>
-          <div className="flex">
-            <Input type={'date'} onChange={handleChange} title="Birthday" name="birthday" />
-            <Input type={'number'} onChange={handleChange} title="Number" name="number" />
-          </div>
+          <FormProvider {...methods}>
+            <form action="">
+              <Input type={'text'} onChange={handleChange} title="Name" name="name" />
+              <div className="select__wrapper">
+                <div className="label">Position</div>
+                <SingleSelect
+                  name="position"
+                  onChange={handleSelectPosition}
+                  style={{ width: '100%' }}
+                  data={newPos}
+                />
+              </div>
+              <div className="select__wrapper">
+                <div className="label">Team</div>
+                <SingleSelect
+                  name="team"
+                  onChange={handleSelectTeam}
+                  style={{ width: '100%' }}
+                  data={newTeam}
+                />
+              </div>
+              <div className="flex">
+                <Input type={'number'} onChange={handleChange} title="Height (cm)" name="height" />
+                <Input type={'number'} onChange={handleChange} title="Weight (kg)" name="weight" />
+              </div>
+              <div className="flex">
+                <Input type={'date'} onChange={handleChange} title="Birthday" name="birthday" />
+                <Input type={'number'} onChange={handleChange} title="Number" name="number" />
+              </div>
+            </form>
+          </FormProvider>
           <div className="rightBlock__control">
             <ButtonSecondary onClick={() => navigate('/dashboard/players')} />
             <Button onClick={() => dispatch(createNewPlayer(values))}>Save</Button>
