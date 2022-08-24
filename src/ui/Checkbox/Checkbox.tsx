@@ -6,7 +6,7 @@ const Checkbox = ({ title, onToggle }: any) => {
     <div className={style.wrapper}>
       <label className={style.container}>
         {title}
-        <input type="checkbox" />
+        <input type="checkbox" onChange={onToggle} />
         <span className={style.checkmark}></span>
       </label>
     </div>

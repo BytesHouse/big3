@@ -29,6 +29,7 @@ const Input = (props: input) => {
               name={name}
               className={style.inp}
               id={id}
+              autoComplete="off"
             />
             {props.type === 'password' && (
               <a href="#" className={style.passwordControlVisible} onClick={togglePassword}></a>

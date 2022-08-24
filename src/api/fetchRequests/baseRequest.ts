@@ -42,7 +42,8 @@ export const get = (url: string, token?: string) =>
   request(`${base}${url}`, { method: 'GET' }, token);
 
 export function post(url: string, body: any, token?: string) {
-  return request(`${base}${url}`, { method: 'POST', body }, token);
+  console.log(body);
+  return request(`${url}`, { method: 'POST', body }, token);
 }
 
 export const remove = (url: string, token: string) =>

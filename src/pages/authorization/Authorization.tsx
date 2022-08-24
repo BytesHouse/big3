@@ -23,7 +23,7 @@ const initialState: FormValues = {
   login: '',
   password: '',
   passwordConfirm: '',
-  confirmAgreement: true,
+  confirmAgreement: false,
   isMember: true,
 };
 
@@ -57,7 +57,15 @@ const Registration = () => {
       dispatch(signIn({ login, password }));
       return;
     }
-    dispatch(signUp({ userName, login, password }));
+    if (confirmAgreement) {
+      if (password === passwordConfirm) {
+        dispatch(signUp({ userName, login, password }));
+      } else if (password != passwordConfirm) {
+        toast.warning('Password dosnt match');
+      }
+    } else if (!confirmAgreement) {
+      toast.warning('Please check agreement');
+    }
   };
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -87,6 +95,7 @@ const Registration = () => {
                   name="userName"
                   type="text"
                   onChange={handleChange}
+                  id="userName"
                 >
                   {errors.userName && <p className={style.error}>{errors.userName.message}</p>}
                 </Input>
@@ -128,7 +137,7 @@ const Registration = () => {
             )}
             {!values.isMember && (
               <Checkbox
-                onToggle={toogleAcceptAgreement}
+                onToggle={() => toogleAcceptAgreement()}
                 className={style.checkbox}
                 title="I accept the agreement"
               />

@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { BASE_URL, SIGN_IN, SIGN_UP } from '../../../../../api/Constants';
 import { IAuthState } from '../../../../../types/models/IAuth';
@@ -8,6 +7,7 @@ import {
   deleteUserFromLocalStorage,
   getUserFromLocalStorage,
 } from '../../../../utils/localStorage';
+import { post } from '../../../../../api/fetchRequests/baseRequest';
 
 const linkSignUp = BASE_URL + SIGN_UP;
 const linkSignIn = BASE_URL + SIGN_IN;
@@ -15,16 +15,19 @@ const linkSignIn = BASE_URL + SIGN_IN;
 export const signUp: any = createAsyncThunk('auth/signup', async (data: any, thunkApi) => {
   const { userName, login, password } = data;
   try {
-    const response = await axios.post(linkSignUp, {
-      login,
-      password,
-      userName,
-    });
-    return response.data;
+    const response = await post(
+      linkSignUp,
+      JSON.stringify({
+        login,
+        password,
+        userName,
+      })
+    );
+    return response;
   } catch (error: any) {
-    if (error.response.data.indexOf('23505') >= 0)
-      toast.error('User with that login already exists');
-    return thunkApi.rejectWithValue(error.response.data);
+    console.log(error);
+    if (error.message === 'status: 409') toast.error('User with that login already exists');
+    return thunkApi.rejectWithValue(error.message);
   }
 });
 
@@ -35,14 +38,18 @@ export const signIn: any = createAsyncThunk(
     const password = data.password;
 
     try {
-      const response = await axios.post(linkSignIn, {
-        login,
-        password,
-      });
-      toast.success(`Hello there ${response.data.name}`);
-      return response.data;
+      const response = await post(
+        linkSignIn,
+        JSON.stringify({
+          login,
+          password,
+        })
+      );
+      console.log(response);
+      toast.success(`Hello there ${response.name}`);
+      return response;
     } catch (error: any) {
-      if (error.response.status === 401) toast.error('The login or password is incorrect');
+      if (error.message === 'status: 401') toast.error('The login or password is incorrect');
       return reject(error);
     }
   }
